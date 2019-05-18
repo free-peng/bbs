@@ -16,6 +16,13 @@ Route::namespace("Home")->group(function () {
     Route::get('/node', 'NodeController@index')->name("home.node.index");
 });
 
-Route::namespace("Backend")->group(function () {
-
+Route::namespace("Backend")->prefix("backend")->group(function () {
+    Route::resource('node', 'NodeController')->names([
+        'create' => 'backend.node.create',
+        'show' => 'backend.node.show',
+        'store' => 'backend.node.store',
+        'update' => 'backend.node.update',
+        'edit' => 'backend.node.edit',
+        'destroy' => 'backend.node.destroy',
+    ]);
 });
