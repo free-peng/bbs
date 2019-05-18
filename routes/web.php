@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace("Home")->group(function () {
+    Route::get('/', 'IndexController@index')->name("home");
+    Route::get('/node', 'NodeController@index')->name("home.node.index");
 });
 
-Route::get('/demo', function () {
-    return 'this is demo';
+Route::namespace("Backend")->group(function () {
+
 });
