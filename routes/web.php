@@ -26,3 +26,5 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
         'destroy' => 'backend.node.destroy',
     ]);
 });
+
+Auth::routes();
