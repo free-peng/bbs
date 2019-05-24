@@ -9,6 +9,6 @@ class NodeController extends Controller
 {
     public function index(Request $request)
     {
-        return 'node';
+        return view("home.node");
     }
 }
