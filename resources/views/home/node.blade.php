@@ -8,14 +8,20 @@
                     节点导航
                 </div>
                 <ul class="list-group list-group-flush">
+                    @foreach($nodeGroups as $group)
                     <li class="list-group-item">
                        <div class="row">
-                           <div class="col-sm-2"><h5>Code</h5></div>
+                           <div class="col-sm-2">
+                               <b>{{ $group->name }}</b>
+                           </div>
                            <div class="col-sm-10">
-                               <a class="node" href="">PHP</a>
+                               @foreach($group->nodes as $node)
+                               <a class="node" href="">{{ $node->name }}</a>
+                               @endforeach
                            </div>
                        </div>
                     </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
