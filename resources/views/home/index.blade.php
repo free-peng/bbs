@@ -40,18 +40,22 @@
                                     <a class="home-index" href="">城市建设</a>
                                     <a class="home-index" href="">社区新人必读</a>
                             </li>
+                            @foreach($topics as $topic)
                             <li class="list-group-item">
                                 <div class="media">
                                     <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">9</span>
-                                        <h6 class="mt-0"><a href="">中建大公馆真的不需要茶水吗？</a></h6>
-                                        <span class="post-cate"><a href="">二手交易</a></span>
+                                        <h6 class="mt-0"><a href="">{{ $topic->title }}</a></h6>
+                                        {{--@foreach($topic->group as $group)--}}
+                                        <span class="post-cate"><a href="">{{ $topic->group->name }}</a></span>
+                                        {{--@endforeach--}}
                                         <span class="post-cate"><a href="">发布话题作者</a></span>
-                                        <span class="post-cate"><a href="">发布时间</a></span>
+                                        <span class="post-cate"><a href="">{{ $topic->create_at }}</a></span>
                                     </div>
                                 </div>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

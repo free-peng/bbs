@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
          $this->call([
              NodeGroupsTableSeeder::class,
              NodesTableSeeder::class,
+             NavTableSeeder::class,
+             TopicsTableSeeder::class,
          ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Topics;
 
 class IndexController extends Controller
 {
@@ -15,6 +16,9 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-        return view("home.index");
+        //查询话题
+        $topics = Topics::all();
+        dump($topics);
+        return view("home.index", compact('topics','topics'));
     }
 }
