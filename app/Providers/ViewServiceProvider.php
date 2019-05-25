@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\NavComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class ComposerServiceProvider extends ServiceProvider
+class ViewServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -23,10 +25,6 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        view()->composer(
-            'app', //模板名
-            'App\Http\ViewComposers\MovieComposer'  //方法名或者类中的方法
-        );
+        View::composer("layouts.app", NavComposer::class);
     }
 }

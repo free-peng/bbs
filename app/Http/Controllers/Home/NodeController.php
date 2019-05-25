@@ -17,7 +17,7 @@ class NodeController extends Controller
     public function index(Request $request)
     {
         $nodeGroups = NodeGroup::all();
-        dump($nodeGroups);
+
         return view("home.node", compact("nodeGroups", "nodes"));
     }
 }
