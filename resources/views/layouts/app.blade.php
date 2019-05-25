@@ -30,8 +30,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">节点</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">成员</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">广告投放</a>
+                        </li>
                     </ul>
+
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
