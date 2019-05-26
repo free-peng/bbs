@@ -28,11 +28,11 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
 
     Route::resource('nav', 'NavController')->names([
         'create' => 'backend.nav.create',
-//        'show' => 'backend.nav.show',
+        'show' => 'backend.nav.show',
         'store' => 'backend.nav.store',
-//        'update' => 'backend.nav.update',
-//        'edit' => 'backend.nav.edit',
-//        'destroy' => 'backend.nav.destroy',
+        'update' => 'backend.nav.update',
+        'edit' => 'backend.nav.edit',
+        'destroy' => 'backend.nav.destroy',
     ]);
 
 //

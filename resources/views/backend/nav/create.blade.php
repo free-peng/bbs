@@ -4,9 +4,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <span>
-                <strong>添加导航</strong>
+                <strong>导航管理</strong>
                 </span>&nbsp; / &nbsp;
-                <span><a href="{{ url('backend/nav') }}">返回上一页</a></span>
+                <span><a href="{{ url('backend/nav') }}">创建导航</a></span>
             </li>
         </ul>
     </div>
@@ -14,11 +14,11 @@
         <div class="card-body">
            <div class="row">
                <div class="col-sm-8">
-                   <form action="{{ url('backend/nav') }}" method="post">
+                   <form action="{{ route("backend.nav.store") }}" method="post">
                        {{csrf_field()}}
                        <div class="form-group">
-                           <label for="formGroupExampleInput">导航名称</label>
-                           <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="输入导航">
+                           <label for="name">导航名称</label>
+                           <input type="text" name="name" class="form-control" id="name" placeholder="输入导航">
                        </div>
                        <div class="form-group">
                            <label for="formGroupExampleInput2">URL</label>

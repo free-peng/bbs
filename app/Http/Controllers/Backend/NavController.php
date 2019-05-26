@@ -34,18 +34,21 @@ class NavController extends Controller
 
     public function store(Request $request)
     {
-        //需要验证数据
+        $rules = [
+            "name"  => 'required',
+            "url"   => 'required|url',
+            "sequence" => "numeric"
+        ];
 
-//        dump($request->all());
-        $navBackend = new NavBackend;
+        $message = [
+            "name.required" => '导航必须填写'
+        ];
 
-        $navBackend->name = $request->name;
-        $navBackend->url = $request->url;
-        $navBackend->sequence = $request->sequence;
-        $navBackend->save();
+        $request->validate($rules, $message);
 
+        Nav::create($request->all());
 
-        return redirect('backend/nav');
+        return redirect()->back();
     }
 
     /**
@@ -90,7 +93,8 @@ class NavController extends Controller
      */
     public function destroy($id)
     {
-        $delete = NavBackend::destroy($id);
-        return redirect('backend/nav');
+        Nav::destroy($id);
+
+        return redirect()->back();
     }
 }
