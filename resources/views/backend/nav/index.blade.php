@@ -3,17 +3,16 @@
     <div class="card" style="margin-top: 5px;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <strong>导航管理</strong>
+                <span>导航管理</span>
+                </span>
+                <span  class="btn btn-primary btn-sm" style="float:right;">
+                     <a href="{{ url('backend/nav/create') }}" style="color: #ffffff;">添加导航</a>
                 </span>
             </li>
             <li class="list-group-item">
-                    <span  class="btn btn-primary btn-sm" style="float:right;">
-                     <a href="{{ url('backend/nav/create') }}" style="color: #ffffff;">添加导航</a>
-                    </span>
-
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" name="name" type="search" placeholder="请输入导航名称" aria-label="Search">
+                    <button class="btn btn-outline-success my-1 my-sm-0" type="submit">搜索</button>
                 </form>
             </li>
         </ul>

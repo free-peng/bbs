@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Nav;
+use App\Http\Requests\Backend\NavRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,19 +33,13 @@ class NavController extends Controller
         return view('backend.nav.create');
     }
 
-    public function store(Request $request)
+    /**
+     * 添加导航数据保存
+     * @param NavRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(NavRequest $request)
     {
-        $rules = [
-            "name"  => 'required',
-            "url"   => 'required|url',
-            "sequence" => "numeric"
-        ];
-
-        $message = [
-            "name.required" => '导航必须填写'
-        ];
-
-        $request->validate($rules, $message);
 
         Nav::create($request->all());
 

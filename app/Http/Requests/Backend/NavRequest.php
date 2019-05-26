@@ -13,7 +13,7 @@ class NavRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class NavRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name"  => 'required',
+            "url"   => 'required|url',
+            "sequence" => "numeric"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => '导航名称必须填写～',
+            'url.required' => 'url必须填写～',
+            'url.url' => 'url必须是url格式',
         ];
     }
 }
+

@@ -4,9 +4,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <span>
-                <strong>导航管理</strong>
+                <a href="{{ url('backend/nav') }}">导航管理</a>
                 </span>&nbsp; / &nbsp;
-                <span><a href="{{ url('backend/nav') }}">创建导航</a></span>
+                <span>创建导航</span>
             </li>
         </ul>
     </div>
