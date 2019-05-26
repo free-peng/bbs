@@ -18,7 +18,6 @@ class IndexController extends Controller
     {
         //查询话题
         $topics = Topics::all();
-        dump($topics);
         return view("home.index", compact('topics','topics'));
     }
 }

@@ -25,6 +25,17 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
         'edit' => 'backend.node.edit',
         'destroy' => 'backend.node.destroy',
     ]);
+
+    Route::resource('nav', 'NavController')->names([
+        'create' => 'backend.nav.create',
+        'show' => 'backend.nav.show',
+        'store' => 'backend.nav.store',
+        'update' => 'backend.nav.update',
+        'edit' => 'backend.nav.edit',
+        'destroy' => 'backend.nav.destroy',
+    ]);
+
+    Route::get('index','IndexController@index');
 });
 
 Auth::routes();
