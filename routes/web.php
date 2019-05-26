@@ -28,14 +28,18 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
 
     Route::resource('nav', 'NavController')->names([
         'create' => 'backend.nav.create',
-        'show' => 'backend.nav.show',
+//        'show' => 'backend.nav.show',
         'store' => 'backend.nav.store',
-        'update' => 'backend.nav.update',
-        'edit' => 'backend.nav.edit',
-        'destroy' => 'backend.nav.destroy',
+//        'update' => 'backend.nav.update',
+//        'edit' => 'backend.nav.edit',
+//        'destroy' => 'backend.nav.destroy',
     ]);
+
+//
+//    Route::get('nav','NavController@index');
+//    Route::get('nav/create','NavController@create');
+//    Route::post('backend/nav/store','NavController@store');
 
     Route::get('index','IndexController@index');
 });
-
 Auth::routes();
