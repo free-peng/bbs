@@ -12,7 +12,7 @@
                     </span>
 
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </li>
@@ -33,14 +33,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($navs as $nav)
+                @foreach($navItems as $nav)
                     <tr>
                         <td>1</td>
                         <td>{{ $nav->name }}</td>
                         <td>{{ $nav->url }}</td>
                         <td>{{ $nav->sequence }}</td>
                         <td></td>
-                        <td>{{ $nav->create_at }}</td>
+                        <td>{{ $nav->created_at }}</td>
                         <td>
                             <a href="">编辑</a>
                             <a href="{{ url('backend/nav/destroy',['id'=>$nav->id]) }}">删除</a>
@@ -50,5 +50,6 @@
                 </tbody>
             </table>
         </div>
+        {{ $navItems->links() }}
     </div>
 @endsection
