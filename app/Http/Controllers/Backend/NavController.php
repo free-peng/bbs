@@ -65,7 +65,9 @@ class NavController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nav = Nav::where('id', $id)->get();
+
+        return view('backend.nav.edit',compact('nav', 'id'));
     }
 
     /**
@@ -77,7 +79,14 @@ class NavController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data['name'] = $request->name;
+        $data['url'] = $request->url;
+        $data['sequence'] = $request->sequence;
+
+        Nav::where('id', $id)->update($data);
+
+        return redirect(route('nav.index'));
     }
 
     /**

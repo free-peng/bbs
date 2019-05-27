@@ -41,7 +41,7 @@
                         <td></td>
                         <td>{{ $nav->created_at }}</td>
                         <td>
-                            <a href="">编辑</a>
+                            <a href="{{ route('backend.nav.edit', ['id' => $nav->id]) }}">编辑</a>
                             <a href="{{ route('backend.nav.destroy', ['id' => $nav->id]) }}">删除</a>
                         </td>
                     </tr>
