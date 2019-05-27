@@ -28,7 +28,7 @@ class NavController extends Controller
         return view('backend.nav.index', compact("navItems"));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('backend.nav.create');
     }
@@ -40,6 +40,7 @@ class NavController extends Controller
      */
     public function store(NavRequest $request)
     {
+
 
         Nav::create($request->all());
 

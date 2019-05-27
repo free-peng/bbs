@@ -18,15 +18,15 @@
                        {{csrf_field()}}
                        <div class="form-group">
                            <label for="name">导航名称</label>
-                           <input type="text" name="name" class="form-control" id="name" placeholder="输入导航">
+                           <input type="text" name="name" class="form-control" id="name" placeholder="输入导航" value="{{ old('name') }}">
                        </div>
                        <div class="form-group">
                            <label for="formGroupExampleInput2">URL</label>
-                           <input type="text" name="url" class="form-control" id="formGroupExampleInput2" placeholder="输入URI格式">
+                           <input type="text" name="url" class="form-control" id="formGroupExampleInput2" placeholder="输入URI格式"value="{{ old('url') }}">
                        </div>
                        <div class="form-group">
                            <label for="formGroupExampleInput2">排序</label>
-                           <input name="sequence" type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+                           <input name="sequence" type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ old('sequence') }}">
                        </div>
                        <select class="custom-select">
                            <option selected>--请选择--</option>
