@@ -18,15 +18,30 @@
                        {{csrf_field()}}
                        <div class="form-group">
                            <label for="name">导航名称</label>
-                           <input type="text" name="name" class="form-control" id="name" placeholder="输入导航" value="{{ old('name') }}">
+                           <input type="text" name="name"  class="form-control  @error('name') is-invalid @enderror"  id="name" placeholder="输入导航" value="{{ old('name') }}">
+                           @error('name')
+                           <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                           @enderror
                        </div>
                        <div class="form-group">
-                           <label for="formGroupExampleInput2">URL</label>
-                           <input type="text" name="url" class="form-control" id="formGroupExampleInput2" placeholder="输入URI格式"value="{{ old('url') }}">
+                           <label for="url">URL</label>
+                           <input type="text" name="url" class="form-control  @error('url') is-invalid @enderror" id="url" placeholder="输入URI格式"value="{{ old('url') }}">
+                           @error('url')
+                           <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                           @enderror
                        </div>
                        <div class="form-group">
-                           <label for="formGroupExampleInput2">排序</label>
-                           <input name="sequence" type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ old('sequence') }}">
+                           <label for="sequence">排序</label>
+                           <input name="sequence" type="text" class="form-control @error('url') is-invalid @enderror" id="sequence" placeholder="" value="{{ old('sequence') }}">
+                           @error('sequence')
+                           <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                           @enderror
                        </div>
                        <select class="custom-select">
                            <option selected>--请选择--</option>

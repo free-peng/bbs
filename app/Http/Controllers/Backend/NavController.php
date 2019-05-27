@@ -78,7 +78,7 @@ class NavController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NavRequest $request, $id)
     {
 
         $data['name'] = $request->name;

@@ -20,15 +20,30 @@
                         <input type="hidden" name="_method" value="put">
                         <div class="form-group">
                             <label for="name">导航名称</label>
-                            <input type="text" name="name" class="form-control" id="name" value="{{ $value->name }}">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $value->name }}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="url">URL</label>
-                            <input type="text" name="url" class="form-control" id="url" value="{{ $value->url }}">
+                            <input type="text" name="url" class="form-control @error('url') is-invalid @enderror" id="url" value="{{ $value->url }}">
+                            @error('url')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="sequence">排序</label>
-                            <input name="sequence" type="text" class="form-control" id="sequence" value="{{ $value->sequence }}">
+                            <input name="sequence" type="text" class="form-control @error('sequence') is-invalid @enderror" id="sequence" value="{{ $value->sequence }}">
+                            @error('sequence')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <select class="custom-select">
                             <option selected>--请选择--</option>
