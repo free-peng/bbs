@@ -80,7 +80,6 @@ class NavController extends Controller
      */
     public function update(NavRequest $request, $id)
     {
-
         $data['name'] = $request->name;
         $data['url'] = $request->url;
         $data['sequence'] = $request->sequence;

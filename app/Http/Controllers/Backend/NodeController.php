@@ -2,19 +2,37 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Backend\NodeRequset;
+use App\Models\Node;
+use App\Models\NodeGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 class NodeController extends Controller
 {
     /**
      * Display a listing of the resource. 查询数据列表
      *
+     *@param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+//        $nodes = Node::query()
+//            ->where($request->filled('name'), function ($query) use ($request) {
+//                return $query->where("name",$request->name);
+//            })
+//            ->orderBy('sequence')
+//            ->paginate();
+
+        $query = Node::query();
+        if ($request->filled("name")) {
+            $query->where("name", $request->name);
+        }
+        $nodes = $query->orderBy("sequence")->paginate(5);
+
+        return view('backend.node.index',compact('nodes'));
     }
 
     /**
@@ -24,7 +42,9 @@ class NodeController extends Controller
      */
     public function create()
     {
-        //
+        $groups = NodeGroup::all();
+
+        return view('backend.node.create', compact('groups'));
     }
 
     /**
@@ -33,9 +53,11 @@ class NodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NodeRequset $request)
     {
-        //
+        Node::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +79,10 @@ class NodeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nodes = Node::find($id);
+        $groups = NodeGroup::all();
+
+        return view('backend.node.edit', compact('id', 'nodes','groups'));
     }
 
     /**
@@ -67,9 +92,9 @@ class NodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NodeRequset $request, $id)
     {
-        //
+        dump($request->all());
     }
 
     /**
