@@ -94,7 +94,17 @@ class NodeController extends Controller
      */
     public function update(NodeRequset $request, $id)
     {
-        dump($request->all());
+        $node = Node::find($id);
+
+        $node->name = $request->name;
+        $node->group_id = $request->group_id;
+        $node->alias = $request->alias;
+        $node->sequence = $request->sequence;
+
+        $node->save();
+
+        return redirect(route('node.index'));
+
     }
 
     /**
