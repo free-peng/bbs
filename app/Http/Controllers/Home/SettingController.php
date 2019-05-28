@@ -33,4 +33,22 @@ class SettingController extends Controller
     {
         return view('home.setting.avatar');
     }
+
+    /**
+     * 发布的文章
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function release()
+    {
+        return view('home.setting.release');
+    }
+
+    /**
+     * 点赞的文章
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function like()
+    {
+        return view('home.setting.like');
+    }
 }
