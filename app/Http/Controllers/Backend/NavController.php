@@ -96,8 +96,10 @@ class NavController extends Controller
      */
     public function destroy($id)
     {
-        Nav::destroy($id);
+        $nav = Nav::query()->findOrFail($id);
 
-        return redirect()->back();
+        $nav->delete();
+
+        return response()->json(['status' => true, 'message' => '数据删除成功']);
     }
 }

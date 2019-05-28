@@ -1,0 +1,155 @@
+[33mcommit 5514ad20c075f4c14a430acd03a8f3311bfcf2c4[m
+Author: moell <moell@moell.cn>
+Date:   Tue May 28 21:57:20 2019 +0800
+
+    nav navav编辑优化
+
+[33mcommit 64ee2d4b6a26ca778f176c6e02e5be6d31ba6ef7[m
+Author: xiao bo <840363720@qq.com>
+Date:   Tue May 28 20:23:59 2019 +0800
+
+    like表数据迁移
+
+[33mcommit 259318e049b485466957f7f9594a0b92bc01d8b0[m
+Author: xiao bo <840363720@qq.com>
+Date:   Tue May 28 15:31:29 2019 +0800
+
+    用户发布的文章和点赞的文章页面
+
+[33mcommit be27df13c5ab16ef330bf0438b44ed9f51e56d7e[m
+Author: xiao bo <840363720@qq.com>
+Date:   Tue May 28 15:10:14 2019 +0800
+
+    个人中心前端页面
+
+[33mcommit 8969c23ac5a0544014ef6b76e1220a839a90c76d[m
+Author: xiao bo <840363720@qq.com>
+Date:   Mon May 27 23:51:32 2019 +0800
+
+    更新优化
+
+[33mcommit 4e9d95e1f025647448ea83f5ceeece7f162990c9[m
+Author: xiao bo <840363720@qq.com>
+Date:   Mon May 27 21:15:15 2019 +0800
+
+    节点管理
+
+[33mcommit a06f590c86d070cac33ea72d2e3ba6db82e14dc9[m
+Author: xiao bo <840363720@qq.com>
+Date:   Mon May 27 17:04:06 2019 +0800
+
+    修改表单错误显示方式
+
+[33mcommit 2cafd9cab1ead9ab6eb9fe7292ff790e8e966e63[m
+Author: xiao bo <840363720@qq.com>
+Date:   Mon May 27 14:25:23 2019 +0800
+
+    验证失败，显示上一次输入数据
+
+[33mcommit 6c24e23ba96657908379cdb6ad6fd8b621a2ec1b[m
+Author: xiao bo <840363720@qq.com>
+Date:   Mon May 27 13:55:37 2019 +0800
+
+    修改导航
+
+[33mcommit 4555214e14b98a9f955b7b99ab2ee98c27a5a7b9[m
+Author: xiao bo <840363720@qq.com>
+Date:   Sun May 26 23:23:32 2019 +0800
+
+    表单验证
+
+[33mcommit 5cf895ab5470876a5aaf566a9d3a588f4e03756c[m
+Author: moell <moell@moell.cn>
+Date:   Sun May 26 22:43:52 2019 +0800
+
+    导航创建“
+
+[33mcommit e335fd765043e7b7f2edce2cf308f02ec93bce5f[m
+Author: moell <moell@moell.cn>
+Date:   Sun May 26 22:06:41 2019 +0800
+
+    导航导航导航列表
+
+[33mcommit ef9541376f66456973a5eacbf76f31ea03ce8788[m
+Author: xiao bo <840363720@qq.com>
+Date:   Sun May 26 21:34:13 2019 +0800
+
+    增加导航
+
+[33mcommit a259764bcfe399dd0d1b0e4bd3e58994272fd5c4[m
+Author: xiao bo <840363720@qq.com>
+Date:   Sun May 26 15:07:01 2019 +0800
+
+    后台页面+导航index
+
+[33mcommit 4670290a3a33411f7f03f5323c6493234bb3f2d5[m
+Author: moell <moell@moell.cn>
+Date:   Sat May 25 22:47:36 2019 +0800
+
+    实现导航数据的赋值
+
+[33mcommit ebba79cb9718bb302a09c7eeaabc21884fdb7212[m
+Author: moell <moell@moell.cn>
+Date:   Sat May 25 21:54:35 2019 +0800
+
+    '忽略idea'
+
+[33mcommit 5906b109967abf5770841503cc6739fe14a304ea[m
+Author: xiao bo <840363720@qq.com>
+Date:   Sat May 25 21:17:18 2019 +0800
+
+    话题数据迁移，前端页面显示数据
+
+[33mcommit 8b0400bcc625077cb69c05e34c616475fef00651[m
+Author: xiao bo <840363720@qq.com>
+Date:   Sat May 25 14:57:49 2019 +0800
+
+    前端主页
+
+[33mcommit 5ab93e2bd39dd331ba721f905c620b47309769f7[m
+Author: moell <moell@moell.cn>
+Date:   Fri May 24 22:48:35 2019 +0800
+
+    节点列表
+
+[33mcommit 1bdb44a0617d60f930dddb8c949b3cda1e65684a[m
+Author: moell <moell@moell.cn>
+Date:   Fri May 24 22:13:40 2019 +0800
+
+    节点模板
+
+[33mcommit 876c0b7d912983c828fbc473cd21d47c3eefa07a[m
+Author: moell <moell@moell.cn>
+Date:   Sun May 19 23:03:01 2019 +0800
+
+    '用户认证'
+
+[33mcommit a2eda644060f7993394dc5985dd33c17ec9fec0d[m
+Author: moell <moell@moell.cn>
+Date:   Sat May 18 22:58:44 2019 +0800
+
+    资源控制器实现
+
+[33mcommit f328dbe6eb016605bfe24b0f440af9c840e332d4[m
+Author: moell <moell@moell.cn>
+Date:   Sat May 18 22:31:00 2019 +0800
+
+    基础路由和模板布局
+
+[33mcommit dff703463fadc91f64f3cafaa2478c62b32f2093[m
+Author: moell <moell@moell.cn>
+Date:   Thu May 16 22:30:56 2019 +0800
+
+    节点数据填充
+
+[33mcommit 12cffa845651c2ea57ab0f2081233c538d620a67[m
+Author: moell <moell@moell.cn>
+Date:   Thu May 16 22:15:50 2019 +0800
+
+    节点数据迁移
+
+[33mcommit 2b67b87c1f8cf545e42ff94a0bee7855215b77ff[m
+Author: moell <moell@moell.cn>
+Date:   Wed May 15 22:20:37 2019 +0800
+
+    first commit

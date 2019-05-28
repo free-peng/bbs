@@ -42,7 +42,7 @@
                         <td>{{ $nav->created_at }}</td>
                         <td>
                             <a href="{{ route('backend.nav.edit', ['id' => $nav->id]) }}">编辑</a>
-                            <a href="{{ route('backend.nav.destroy', ['id' => $nav->id]) }}">删除</a>
+                            <a class="nav-delete" href="javascript:void(0)" data-href="{{ route('backend.nav.destroy', ['id' => $nav->id]) }}">删除</a>
                         </td>
                     </tr>
                 @endforeach
@@ -51,4 +51,24 @@
         </div>
         {{ $navItems->links() }}
     </div>
+@endsection
+
+@section("script")
+    <script>
+        $(function() {
+          $(".nav-delete").click(function() {
+            $.ajax({
+              url: $(this).attr("data-href"),
+              type: "delete",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+              },
+              error: function() {
+                console.log('error')
+              }
+            });
+          });
+        });
+    </script>
 @endsection

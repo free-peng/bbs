@@ -11,11 +11,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 </head>
 
+<body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
@@ -47,14 +50,14 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
+                    @endif
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -73,22 +76,33 @@
                                 </form>
                             </div>
                         </li>
-                    @endguest
+                        @endguest
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container">
         {{--@if ($errors->any())--}}
-            {{--<div class="alert alert-danger">--}}
-                {{--<ul>--}}
-                    {{--@foreach ($errors->all() as $error)--}}
-                        {{--<li>{{ $error }}</li>--}}
-                    {{--@endforeach--}}
-                {{--</ul>--}}
-            {{--</div>--}}
+        {{--<div class="alert alert-danger">--}}
+        {{--<ul>--}}
+        {{--@foreach ($errors->all() as $error)--}}
+        {{--<li>{{ $error }}</li>--}}
+        {{--@endforeach--}}
+        {{--</ul>--}}
+        {{--</div>--}}
         {{--@endif--}}
         @yield('content')
     </div>
 </div>
+<script>
+    $(function() {
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+    });
+</script>
+@yield("script")
+</body>
 </html>
