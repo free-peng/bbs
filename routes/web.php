@@ -14,6 +14,9 @@
 Route::namespace("Home")->group(function () {
     Route::get('/', 'IndexController@index')->name("home");
     Route::get('/node', 'NodeController@index')->name("home.node.index");
+    Route::get('/setting', 'SettingController@index')->name("home.setting.index");
+    Route::get('/setting/password', 'SettingController@password')->name("home.setting.password");
+    Route::get('/setting/avatar', 'SettingController@avatar')->name("home.setting.avatar");
 });
 
 Route::namespace("Backend")->prefix("backend")->group(function () {
