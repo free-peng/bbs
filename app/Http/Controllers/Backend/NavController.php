@@ -41,8 +41,6 @@ class NavController extends Controller
      */
     public function store(NavRequest $request)
     {
-
-
         Nav::create($request->all());
 
         return redirect()->back();
@@ -67,29 +65,27 @@ class NavController extends Controller
      */
     public function edit($id)
     {
-        $nav = Nav::where('id', $id)->get();
+        $nav = Nav::query()->findOrFail($id);
 
-        return view('backend.nav.edit',compact('nav', 'id'));
+        return view('backend.nav.edit',compact('nav'));
     }
 
     /**
      * Update the specified resource in storage. 修改数据
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  NavRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(NavRequest $request, $id)
     {
-        $nav = nav::find($id);
+        $nav = Nav::query()->findOrFail($id);
 
-        $nav->name = $request->name;
-        $nav->url = $request->url;
-        $nav->sequence = $request->sequence;
+        $nav->fill($request->only(['name', 'url', 'sequence']));
 
         $nav->save();
 
-        return redirect(route('nav.index'));
+        return redirect()->back();
     }
 
     /**

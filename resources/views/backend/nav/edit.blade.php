@@ -14,13 +14,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-8">
-                    <form action="{{ route("backend.nav.update", ['id'=>$id]) }}" method="post">
+                    <form action="{{ route("backend.nav.update", ['id'=> $nav->id]) }}" method="post">
                         {{csrf_field()}}
-                        @foreach($nav as $value)
                         <input type="hidden" name="_method" value="put">
                         <div class="form-group">
                             <label for="name">导航名称</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $value->name }}">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $nav->name }}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -29,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="url">URL</label>
-                            <input type="text" name="url" class="form-control @error('url') is-invalid @enderror" id="url" value="{{ $value->url }}">
+                            <input type="text" name="url" class="form-control @error('url') is-invalid @enderror" id="url" value="{{ $nav->url }}">
                             @error('url')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="sequence">排序</label>
-                            <input name="sequence" type="text" class="form-control @error('sequence') is-invalid @enderror" id="sequence" value="{{ $value->sequence }}">
+                            <input name="sequence" type="text" class="form-control @error('sequence') is-invalid @enderror" id="sequence" value="{{ $nav->sequence }}">
                             @error('sequence')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -50,7 +49,6 @@
                             <option value="1">显示</option>
                             <option value="0">隐藏</option>
                         </select>
-                        @endforeach
                         <div style="margin-top: 10px;">
                             <button type="submit" class="btn btn-success">保存</button>
                             <button type="reset" class="btn btn-warning">重置</button>
