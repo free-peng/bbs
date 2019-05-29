@@ -28,14 +28,14 @@ class TopicsTableSeeder extends Seeder
                             2、哪些培训学院比较好？北大青鸟，创享学院，博厚？
                             能想到的就这些了:eye_roll:，欢迎社区里的各位大神给出积极建议。',
                 'group_id'=> 1,
-                'user_id' => 2,
+                'user_id' => 1,
                 'pv' => 15
             ],
             [
                 'title'=>'请教一个linux命令',
                 'content'=> '把文件夹里所有文件和文件夹拷贝到另外一个文件夹用什么命令？',
                 'group_id'=> 1,
-                'user_id' => 3,
+                'user_id' => 1,
                 'pv' => 25
             ]
         ]);

@@ -10,4 +10,14 @@ class Topics extends Model
     {
         return $this->belongsTo(NodeGroup::class, "group_id");
     }
+
+    public function nodes()
+    {
+        return $this->belongsTo(Node::class, 'group_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

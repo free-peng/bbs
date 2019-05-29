@@ -3,10 +3,10 @@
     <div class="card" style="margin-top: 5px;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <span>节点管理</span>
+                <span>话题管理</span>
                 </span>
                 <span  class="btn btn-primary btn-sm" style="float:right;">
-                     <a href="{{ route('backend.node.create') }}" style="color: #ffffff;">添加节点</a>
+                     <a href="{{ route('backend.topic.create') }}" style="color: #ffffff;">添加节点</a>
                 </span>
             </li>
             <li class="list-group-item">
@@ -23,40 +23,38 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">节点名称</th>
-                    <th scope="col">节点分组</th>
-                    <th scope="col">节点别名</th>
-                    <th scope="col">排序</th>
+                    <th scope="col">标题</th>
+                    <th scope="col">节点</th>
+                    <th scope="col">作者</th>
+                    <th scope="col">阅读数</th>
                     <th scope="col">创建时间</th>
                     <th scope="col">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-
-                @foreach($nodes as $node)
+                @foreach($topics as $topic)
                     <tr>
-                        <td>{{ $node->name }}</td>
-                        <td>{{ $node->group->name }}</td>
-                        <td>{{ $node->alias }}</td>
-                        <td>{{ $node->sequence }}</td>
-                        <td>{{ $node->create_at }}</td>
+                        <td><a href="">{{ $topic->title }}</a></td>
+                        <td>{{ $topic->nodes->name}}</td>
+                        <td>{{ $topic->user->name }}</td>
+                        <td>{{ $topic->pv }}</td>
+                        <td>{{ $topic->create_at }}</td>
                         <td>
-                            <a href="{{ route('backend.node.edit', ['id'=>$node->id]) }}">编辑</a>
-                            <a class="node-delete" data-href="{{ route('backend.node.destroy', ['id'=>$node->id]) }}" href="javascript:void(0)">删除</a>
+                            <a class="topic-delete" data-href="{{ route('backend.topic.destroy', ['id'=>$topic->id]) }}" href="javascript:void(0)">删除</a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{ $nodes->links() }}
+            {{ $topics->links() }}
         </div>
-
     </div>
+
 @endsection
 @section("script")
     <script>
         $(function() {
-            $(".node-delete").click(function() {
+            $(".topic-delete").click(function() {
                 $.ajax({
                     url: $(this).attr("data-href"),
                     type: "delete",

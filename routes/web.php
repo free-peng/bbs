@@ -40,10 +40,15 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
         'destroy' => 'backend.nav.destroy',
     ]);
 
-//
-//    Route::get('nav','NavController@index');
-//    Route::get('nav/create','NavController@create');
-//    Route::post('backend/nav/store','NavController@store');
+    Route::resource('topic', 'TopicController')->names([
+        'create' => 'backend.topic.create',
+        'show' => 'backend.topic.show',
+        'store' => 'backend.topic.store',
+        'update' => 'backend.topic.update',
+        'edit' => 'backend.topic.edit',
+        'destroy' => 'backend.topic.destroy',
+    ]);
+
 
     Route::get('index','IndexController@index');
 });

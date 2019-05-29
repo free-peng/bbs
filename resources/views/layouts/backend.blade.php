@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{ route('node.index') }}">节点管理</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="">话题管理</a>
+                        <a class="nav-link" href="{{ route('topic.index') }}">话题管理</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="">用户管理</a>
@@ -82,15 +82,6 @@
         </div>
     </nav>
     <div class="container">
-        {{--@if ($errors->any())--}}
-        {{--<div class="alert alert-danger">--}}
-        {{--<ul>--}}
-        {{--@foreach ($errors->all() as $error)--}}
-        {{--<li>{{ $error }}</li>--}}
-        {{--@endforeach--}}
-        {{--</ul>--}}
-        {{--</div>--}}
-        {{--@endif--}}
         @yield('content')
     </div>
 </div>

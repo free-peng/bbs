@@ -17,6 +17,7 @@
             </li>
         </ul>
     </div>
+    @include('layouts/delete')
     <div class="card" style="margin-top: 5px;">
         <div class="card-body">
             <table class="table table-hover">
@@ -62,7 +63,10 @@
               type: "delete",
               dataType: "json",
               success: function (data) {
-                console.log(data)
+                  if (data.status == true) {
+                      $('.delete-div').css('display','block');
+                      window.location.reload();
+                  }
               },
               error: function() {
                 console.log('error')

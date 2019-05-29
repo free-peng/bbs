@@ -19,18 +19,11 @@ class NodeController extends Controller
      */
     public function index(Request $request)
     {
-//        $nodes = Node::query()
-//            ->where($request->filled('name'), function ($query) use ($request) {
-//                return $query->where("name",$request->name);
-//            })
-//            ->orderBy('sequence')
-//            ->paginate();
-
         $query = Node::query();
         if ($request->filled("name")) {
             $query->where("name", $request->name);
         }
-        $nodes = $query->orderBy("sequence")->paginate(5);
+        $nodes = $query->orderBy("sequence")->paginate();
 
         return view('backend.node.index',compact('nodes'));
     }
@@ -115,6 +108,10 @@ class NodeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nav = Node::query()->findOrFail($id);
+
+        $nav->delete();
+
+        return response()->json(['status' => true, 'message' => '数据删除成功']);
     }
 }
