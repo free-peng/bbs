@@ -20,23 +20,20 @@
                     <span>共收到xx条回复</span>
                 </div>
                 <ul class="list-group list-group-flush">
+                    @foreach($reviews as $review)
                     <li class="list-group-item">
                         <div class="media">
                             <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                             <div class="media-body">
-                                <span class="mt-0"><a href=""><span class="setting-description">评论人</span></a>&nbsp;<span class="setting-description">评论时间</span></span>
+                                <span class="mt-0"><a href=""><span class="setting-description">{{ $review->user->name }}</span></a>&nbsp;
+                                    <span class="setting-description">{{ $review->create_at }}</span>
+                                </span>
                                 <span class="post-cate setting-description" style="float:right;">赞</span>
-                                <p>评论内容，评论内容，评论内容，评论内容，评论内容，
-                                    评论内容，评论内容，评论内容，评论内容
-                                    ，评论内容，评论内容，评论内容，评论内容，评论内容，
-                                    评论内容，评论内容，评论内容，评论内容，评论内容，评论内容，
-                                    评论内容，评论内容，评论内容，评论内容，
-                                    评论内容，评论内容，评论内容，评论内容，评论内容，评论内容，
-                                    评论内容，评论内容，评论内容，评论内容，
-                                </p>
+                                <p>{{ $review->content }}</p>
                             </div>
                         </div>
                     </li>
+                    @endforeach
                 </ul>
             </div>
 
