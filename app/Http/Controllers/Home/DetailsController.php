@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class DetailsController extends Controller
 {
-    public function index()
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(Request $request)
     {
-        return view('home.details.index');
+        $article = Topics::query()->findOrFail($request->id);
+        
+        return view('home.details.index',compact('article'));
     }
 }

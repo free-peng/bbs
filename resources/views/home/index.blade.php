@@ -46,10 +46,8 @@
                                     <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">9</span>
-                                        <h6 class="mt-0"><a href="">{{ $topic->title }}</a></h6>
-                                        {{--@foreach($topic->group as $group)--}}
+                                        <h6 class="mt-0"><a href="{{route('home.details.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
                                         <span class="post-cate"><a href="">{{ $topic->group->name }}</a></span>
-                                        {{--@endforeach--}}
                                         <span class="post-cate"><a href="">发布话题作者</a></span>
                                         <span class="post-cate"><a href="">{{ $topic->create_at }}</a></span>
                                     </div>

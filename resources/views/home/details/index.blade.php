@@ -4,21 +4,14 @@
         <div class="col-sm-9">
             <div class="card" >
                 <div class="card-header">
-                    <h5>武汉小康家庭，回武汉还是去上海？</h5>
-                    <span class="post-cate"><a href="">节点</a></span>
-                    <span class="post-cate"><a href="">发布作者</a></span>
-                    <span class="post-cate">发表于&nbsp; 发布时间 </span>
+                    <h5>{{$article->title}}</h5>
+                    <span class="post-cate"><a href="">{{ $article->group->name }}</a></span>
+                    <span class="post-cate"><a href="">{{ $article->user->name }}</a></span>
+                    <span class="post-cate">发表于&nbsp; {{ $article->careate_at }} </span>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
-                        话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域话题摆放区域
+                        {{ $article->content }}
                     </li>
                 </ul>
             </div>
