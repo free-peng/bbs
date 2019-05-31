@@ -20,4 +20,5 @@ class IndexController extends Controller
         $topics = Topics::all();
         return view("home.index", compact('topics','topics'));
     }
+
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\Backend\UserRequset;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -43,9 +44,12 @@ class UserController extends Controller
      */
     public function store(UserRequset $request)
     {
-        User::create($request->all());
+        $data = $request->only(['name','email', 'weibo','website','github','sex','is_admin']);
+        $data['password'] = Hash::make($request->password);
 
-        return redirect()->back();
+         User::create($data);
+
+//        return redirect()->back();
     }
 
     /**
