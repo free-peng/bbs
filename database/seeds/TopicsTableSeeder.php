@@ -12,15 +12,6 @@ class TopicsTableSeeder extends Seeder
     public function run()
     {
         DB::table('topics')->insert([
-            /**
-             *  $table->bigIncrements('id');
-            $table->string('title')->comment('话题标题');
-            $table->text('content')->comment('话题内容');
-            $table->integer("group_id")->comment("节点分组");
-            $table->integer("user_id")->comment("发布者ID");
-            $table->integer("read")->comment("阅读数");
-            $table->timestamps();
-             */
             [
                 'title'=>'非IT专业想学习IT的那些事儿',
                 'content'=> '背景描述：之前做销售，现在想报名参加IT技术培训，请教一下各位大神:nerd:

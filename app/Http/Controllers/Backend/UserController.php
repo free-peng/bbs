@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Topics;
+use App\Http\Requests\Backend\UserRequset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TopicController extends Controller
+class UserController extends Controller
 {
     /**
      * @param Request $request
@@ -14,13 +15,14 @@ class TopicController extends Controller
      */
     public function index(Request $request)
     {
-        $topics = Topics::query()
-            ->when($request->filled('name'), function($query) use (&$request) {
-                return $query->where('title','like','%'.$request->name.'%');
+//        $users = User::paginate();
+        $users = User::query()
+            ->when($request->filled('name'), function($query) use($request) {
+                return $query->where('name','like', '%'.$request->name.'%');
             })
             ->paginate(10);
 
-        return view('backend.topic.index', compact('topics'));
+        return view('backend.user.index',compact('users'));
     }
 
     /**
@@ -30,7 +32,7 @@ class TopicController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.user.create');
     }
 
     /**
@@ -39,9 +41,11 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequset $request)
     {
-        //
+        User::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -52,7 +56,7 @@ class TopicController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -63,7 +67,9 @@ class TopicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::query()->findOrFail($id);
+
+        return view('backend.user.edit',compact('user'));
     }
 
     /**
@@ -73,9 +79,15 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequset $request, $id)
     {
-        //
+        $user = User::query()->findOrFail($id);
+
+        dd($request->all());
+        $user->fill($request->only(['email', 'website','weibo','github','sex','is_admin']));
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -86,7 +98,7 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        $nav = Topics::query()->findOrFail($id);
+        $nav = User::query()->findOrFail($id);
 
         $nav->delete();
 

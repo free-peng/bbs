@@ -43,6 +43,7 @@
                                     </span>
                            @enderror
                        </div>
+                       <label for="sequence">是否显示</label>
                        <select class="custom-select">
                            <option selected>--请选择--</option>
                            <option value="1">显示</option>

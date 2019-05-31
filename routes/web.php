@@ -49,6 +49,15 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
         'destroy' => 'backend.topic.destroy',
     ]);
 
+    Route::resource('user', 'UserController')->names([
+        'create' => 'backend.user.create',
+        'show' => 'backend.user.show',
+        'store' => 'backend.user.store',
+        'update' => 'backend.user.update',
+        'edit' => 'backend.user.edit',
+        'destroy' => 'backend.user.destroy',
+    ]);
+
 
     Route::get('index','IndexController@index');
 });

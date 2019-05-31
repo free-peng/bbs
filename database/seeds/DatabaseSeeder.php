@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
              NodesTableSeeder::class,
              NavTableSeeder::class,
              TopicsTableSeeder::class,
+             UsersTableSeeder::class,
          ]);
     }
 }
