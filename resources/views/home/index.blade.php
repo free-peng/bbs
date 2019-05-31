@@ -24,7 +24,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-2">
-                    <button type="button" class="btn btn-primary" style="float: right;">发布新主题</button>
+                    <a href="{{ route('home.release.index') }}" class="btn btn-primary" style="float: right; color:#FFFFFF">发布新主题</a>
                 </div>
 
                 <div class="container" style=" margin-top:15px;">

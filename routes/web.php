@@ -20,7 +20,9 @@ Route::namespace("Home")->group(function () {
     Route::get('/setting/release', 'SettingController@release')->name("home.setting.release");
     Route::get('/setting/like', 'SettingController@like')->name("home.setting.like");
 
-    Route::get('/details', 'DetailsController@index')->name("home.details.index");
+    Route::get('/details/{id}', 'DetailsController@index')->name("home.details.index");
+
+    Route::get('/release', 'ReleaseController@index')->name("home.release.index");
 });
 
 Route::namespace("Backend")->prefix("backend")->group(function () {
