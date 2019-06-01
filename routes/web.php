@@ -25,7 +25,7 @@ Route::namespace("Home")->group(function () {
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");
 });
 
-Route::namespace("Backend")->prefix("backend")->group(function () {
+Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
     Route::resource('node', 'NodeController')->names([
         'create' => 'backend.node.create',
         'show' => 'backend.node.show',
@@ -65,4 +65,5 @@ Route::namespace("Backend")->prefix("backend")->group(function () {
 
     Route::get('index','IndexController@index');
 });
+
 Auth::routes();
