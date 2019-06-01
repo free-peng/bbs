@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\UserRequset;
+use App\Http\Requests\Backend\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -37,12 +37,9 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param UserRequest $request
      */
-    public function store(UserRequset $request)
+    public function store(UserRequest $request)
     {
         $data = $request->only(['name','email', 'weibo','website','github','sex','is_admin']);
         $data['password'] = Hash::make($request->password);
@@ -83,7 +80,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequset $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::query()->findOrFail($id);
 

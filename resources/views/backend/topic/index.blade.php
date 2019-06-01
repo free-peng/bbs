@@ -37,8 +37,8 @@
                     <tr>
                         <td>{{ 1 }}</td>
                         <td><a href="">{{ $topic->title }}</a></td>
-                        <td>{{ $topic->nodes->name}}</td>
-                        <td>{{ $topic->user->name }}</td>
+                        <td>{{ optional($topic->nodes)->name}}</td>
+                        <td>{{ optional($topic->user)->name }}</td>
                         <td>{{ $topic->pv }}</td>
                         <td>{{ $topic->create_at }}</td>
                         <td>
