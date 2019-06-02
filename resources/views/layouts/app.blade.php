@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="static/js/nicEdit.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.js"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

@@ -28,7 +28,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <textarea rows="10" cols="106"></textarea>
+
+                                <textarea rows="10" name="content" id="create-content"  cols="106" class="form-control"></textarea>
+
                             <button type="button" class="btn btn-info">发表话题</button>
                         </form>
                     </li>
@@ -44,4 +46,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section("script")
+<script>
+    bkLib.onDomLoaded(function() {
+        new nicEditor({iconsPath : 'static/js/nicEditorIcons.gif'}).panelInstance('create-content');
+    });
+</script>
 @endsection
