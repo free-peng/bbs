@@ -15,6 +15,7 @@ class TopicController extends Controller
     public function index(Request $request)
     {
         $topics = Topics::query()
+            ->with(["user", "nodes"])
             ->when($request->filled('name'), function($query) use (&$request) {
                 return $query->where('title','like','%'.$request->name.'%');
             })
