@@ -7,7 +7,7 @@ use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DetailsController extends Controller
+class TopicController extends Controller
 {
     /**
      * @param Request $request
@@ -20,6 +20,6 @@ class DetailsController extends Controller
         dump($request->session()->all());
         $reviews = Review::query()->findOrFail(['topic_id'=>$request->id]);
 
-        return view('home.details.index',compact('article', 'reviews'));
+        return view('home.topic.index',compact('article', 'reviews'));
     }
 }

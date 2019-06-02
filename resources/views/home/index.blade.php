@@ -46,7 +46,7 @@
                                     <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">9</span>
-                                        <h6 class="mt-0"><a href="{{route('home.details.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
+                                        <h6 class="mt-0"><a href="{{route('home.topic.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
                                         <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
                                         <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
                                         <span class="post-cate"><a href="">{{ $topic->create_at }}</a></span>

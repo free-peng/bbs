@@ -18,7 +18,8 @@ class IsAdmin
         $user = $request->user();
         if ($user->is_admin === 0) {
             return  ! $request->expectsJson()
-                ? response()->json(['message' => '无权限访问'])
+//                ? response()->json(['message' => '无权限访问'])
+                ? redirect()->to(route('home.error'))
                 : response()->json(['message' => '无权限访问']);
         }
 

@@ -20,10 +20,14 @@ Route::namespace("Home")->group(function () {
     Route::get('/setting/release', 'SettingController@release')->name("home.setting.release");
     Route::get('/setting/like', 'SettingController@like')->name("home.setting.like");
 
-    Route::get('/details/{id}', 'DetailsController@index')->name("home.details.index");
+    Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
 
+    //发布新话题的页面
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");
     Route::post('/release/save', 'ReleaseController@save')->name("home.release.save");
+
+    //error页面
+    Route::get('/error', 'ErrorsController@index')->name("home.error");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
@@ -64,7 +68,7 @@ Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->gro
     ]);
 
 
-    Route::get('index','IndexController@index');
+    Route::get('/','IndexController@index');
 });
 
 Auth::routes();
