@@ -40,8 +40,8 @@ class UserRequest extends FormRequest
             'email.email' => '必须是邮箱格式～',
             'password.required' => '密码必须填写～',
             'password.min:8' => '密码最少为8位～',
-//            'website.url' => '个人网址为URL格式～',
-//            'github.url' => '个人网址为URL格式～',
+            'website.url' => '个人网址为URL格式～',
+            'github.url' => '个人网址为URL格式～',
         ];
     }
 }

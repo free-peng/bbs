@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topics extends Model
 {
-    public function group()
-    {
-        return $this->belongsTo(NodeGroup::class, "group_id");
-    }
+    protected $fillable = ['title','content','node_id','user_id'];
+
 
     public function nodes()
     {
-        return $this->belongsTo(Node::class, 'group_id');
+        return $this->belongsTo(Node::class, 'node_id');
     }
 
     public function user()

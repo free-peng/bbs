@@ -17,9 +17,9 @@ class CreateTopicsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->comment('话题标题');
             $table->mediumText('content')->comment('话题内容');
-            $table->integer("group_id")->comment("节点分组");
+            $table->integer("node_id")->comment("节点id");
             $table->integer("user_id")->comment("发布者ID");
-            $table->integer("pv")->comment("阅读数");
+            $table->integer("pv")->default(0)->comment("阅读数");
             $table->timestamps();
         });
     }

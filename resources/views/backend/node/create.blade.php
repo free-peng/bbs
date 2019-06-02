@@ -21,8 +21,8 @@
                     <input type="text" name="name"  class="form-control  @error('name') is-invalid @enderror"  id="name" placeholder="输入节点名称" value="{{ old('name') }}">
                     @error('name')
                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -30,8 +30,8 @@
                     <input type="text" name="alias"  class="form-control  @error('alias') is-invalid @enderror"  id="name" placeholder="输入节点别名" value="{{ old('name') }}">
                     @error('alias')
                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -39,8 +39,8 @@
                     <input type="text" name="sequence"  class="form-control  @error('sequence') is-invalid @enderror"  id="name" placeholder="输入节点别名" value="{{ old('name') }}">
                     @error('sequence')
                     <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
                 <div class="form-group">

@@ -23,6 +23,7 @@ Route::namespace("Home")->group(function () {
     Route::get('/details/{id}', 'DetailsController@index')->name("home.details.index");
 
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");
+    Route::post('/release/save', 'ReleaseController@save')->name("home.release.save");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {

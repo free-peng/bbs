@@ -47,8 +47,8 @@
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">9</span>
                                         <h6 class="mt-0"><a href="{{route('home.details.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
-                                        <span class="post-cate"><a href="">{{ $topic->group->name }}</a></span>
-                                        <span class="post-cate"><a href="">发布话题作者</a></span>
+                                        <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
+                                        <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
                                         <span class="post-cate"><a href="">{{ $topic->create_at }}</a></span>
                                     </div>
                                 </div>
