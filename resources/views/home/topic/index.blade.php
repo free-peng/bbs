@@ -13,6 +13,9 @@
                     <li class="list-group-item">
                         {{ $topic->content }}
                     </li>
+                    <li class="list-group-item">
+                        <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a></span>
+                    </li>
                 </ul>
             </div>
             <div class="card" style="margin-top: 10px;">

@@ -13,7 +13,7 @@ class InfoController extends Controller
     {
         //查询出当前用户所发表的文章
         $topics = Topics::where('user_id',Auth::user()->id)->get();
-        
+
         return view('home.info.index', compact('topics'));
     }
 

@@ -21,6 +21,7 @@ Route::namespace("Home")->group(function () {
     //话题详情和保存评论
     Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
     Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
+    Route::get('/topic/like/{id}', 'TopicController@like')->name('home.topic.like');
 
     //发布新话题的页面
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");

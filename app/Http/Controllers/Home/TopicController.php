@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Like;
 use App\Models\Review;
 use App\Models\Topics;
 use Illuminate\Http\Request;
@@ -16,8 +17,10 @@ class TopicController extends Controller
      */
     public function index(Request $request)
     {
+        //话题内容
         $topic = Topics::query()->findOrFail($request->id);
 
+        //评论内容
         $reviews = Review::where('topic_id', $request->id)->get();
 
         return view('home.topic.index',compact('topic', 'reviews'));
@@ -41,6 +44,16 @@ class TopicController extends Controller
         $review = new Review;
         $review->fill(array_merge($data, $request->all()));
         $review->save();
+
+        return redirect()->back();
+    }
+
+    public function like(Request $request)
+    {
+        $data['topic_id'] = $request->id;
+        $data['user_id'] = Auth::user()->id;
+
+        Like::create($data);
 
         return redirect()->back();
     }
