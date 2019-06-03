@@ -7,7 +7,7 @@
                     <h5>{{$topic->title}}</h5>
                     <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
                     <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
-                    <span class="post-cate">发表于&nbsp; {{ $topic->careate_at }} </span>
+                    <span class="post-cate">发表于&nbsp; {{ $topic->created_at }} </span>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -26,7 +26,7 @@
                             <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                             <div class="media-body">
                                 <span class="mt-0"><a href=""><span class="setting-description">{{ $review->user->name }}</span></a>&nbsp;
-                                    <span class="setting-description">{{ $review->create_at }}</span>
+                                    <span class="setting-description">{{ $review->created_at }}</span>
                                 </span>
                                 <span class="post-cate setting-description" style="float:right;">赞</span>
                                 <p>{{ $review->content }}</p>

@@ -17,8 +17,6 @@ Route::namespace("Home")->group(function () {
     Route::get('/setting', 'SettingController@index')->name("home.setting.index");
     Route::get('/setting/password', 'SettingController@password')->name("home.setting.password");
     Route::get('/setting/avatar', 'SettingController@avatar')->name("home.setting.avatar");
-    Route::get('/setting/release', 'SettingController@release')->name("home.setting.release");
-    Route::get('/setting/like', 'SettingController@like')->name("home.setting.like");
 
     //话题详情和保存评论
     Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
@@ -30,6 +28,10 @@ Route::namespace("Home")->group(function () {
 
     //error页面
     Route::get('/error', 'ErrorsController@index')->name("home.error");
+
+    //个人中心
+    Route::get('/info', 'InfoController@index')->name("home.info.index");
+    Route::get('/info/like', 'InfoController@like')->name("home.info.like");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
