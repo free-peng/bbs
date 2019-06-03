@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -15,11 +16,32 @@ class TopicController extends Controller
      */
     public function index(Request $request)
     {
-        $article = Topics::query()->findOrFail($request->id);
+        $topic = Topics::query()->findOrFail($request->id);
 
-        dump($request->session()->all());
-        $reviews = Review::query()->findOrFail(['topic_id'=>$request->id]);
+        $reviews = Review::where('topic_id', $request->id)->get();
 
-        return view('home.topic.index',compact('article', 'reviews'));
+        return view('home.topic.index',compact('topic', 'reviews'));
+    }
+
+    //评论保存
+    public function reviewSave(Request $request)
+    {
+        $rules = [
+          'content' => 'required'
+        ];
+
+        $message = [
+            'content.required' => '内容不能为空！'
+        ];
+
+        $request->validate($rules, $message);
+
+        $data['user_id'] = Auth::user()->id;
+
+        $review = new Review;
+        $review->fill(array_merge($data, $request->all()));
+        $review->save();
+
+        return redirect()->back();
     }
 }

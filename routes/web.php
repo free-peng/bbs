@@ -20,7 +20,9 @@ Route::namespace("Home")->group(function () {
     Route::get('/setting/release', 'SettingController@release')->name("home.setting.release");
     Route::get('/setting/like', 'SettingController@like')->name("home.setting.like");
 
+    //话题详情和保存评论
     Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
+    Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
 
     //发布新话题的页面
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");

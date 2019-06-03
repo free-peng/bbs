@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    protected $fillable = ['topic_id','user_id', 'content'];
+
     public function topic()
     {
         return $this->belongsTo(Node::class, 'topic_id');

@@ -4,14 +4,14 @@
         <div class="col-sm-9">
             <div class="card" >
                 <div class="card-header">
-                    <h5>{{$article->title}}</h5>
-                    <span class="post-cate"><a href="">{{ $article->group->name }}</a></span>
-                    <span class="post-cate"><a href="">{{ $article->user->name }}</a></span>
-                    <span class="post-cate">发表于&nbsp; {{ $article->careate_at }} </span>
+                    <h5>{{$topic->title}}</h5>
+                    <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
+                    <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
+                    <span class="post-cate">发表于&nbsp; {{ $topic->careate_at }} </span>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        {{ $article->content }}
+                        {{ $topic->content }}
                     </li>
                 </ul>
             </div>
@@ -42,9 +42,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">创建新的回复</li>
                     <li class="list-group-item">
-                        <form action="" method="">
-                            <textarea rows="10" cols="106"></textarea>
-                            <button type="button" class="btn btn-info">立即回复</button>
+                        <form action="{{ route('home.topic.reviewSave') }}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="topic_id" value="{{ $topic->id }}">
+                            <textarea name="content" rows="10" cols="106"></textarea>
+                            <button type="submit" class="btn btn-info">立即回复</button>
                         </form>
                     </li>
                 </ul>
