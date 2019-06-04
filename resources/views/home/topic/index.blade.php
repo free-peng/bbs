@@ -14,17 +14,20 @@
                         {{ $topic->content }}
                     </li>
                     <li class="list-group-item">
-                        @if($like ===0)
-                        <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
-                        @else
-                            <span><a href="">已点赞</a>&nbsp;{{ $likes }}</span>
-                        @endif
+                        <span style="float:right;">
+                            <span>{{ $topic->pv }}&nbsp;次点击</span>
+                            @if($like ===0)
+                            <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
+                            @else
+                                <span><a href="">已点赞</a>&nbsp;{{ $likes }}</span>
+                            @endif
+                        </span>
                     </li>
                 </ul>
             </div>
             <div class="card" style="margin-top: 10px;">
                 <div class="card-header">
-                    <span>共收到xx条回复</span>
+                    <span>共收到{{ $reviews->count() }}条回复</span>
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($reviews as $review)

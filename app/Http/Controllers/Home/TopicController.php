@@ -19,6 +19,9 @@ class TopicController extends Controller
     {
         //话题内容
         $topic = Topics::query()->findOrFail($request->id);
+        //文章点击次数统计
+        $topic->pv = $topic->pv + 1;
+        $topic->save();
 
         //评论内容
         $reviews = Review::where('topic_id', $request->id)->get();
