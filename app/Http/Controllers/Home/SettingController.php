@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -32,6 +34,36 @@ class SettingController extends Controller
     public function avatar()
     {
         return view('home.setting.avatar');
+    }
+
+    /**
+     * 头像上传
+     *
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function avatarUpload(Request $request)
+    {
+        if (! $request->hasFile("avatar")) {
+            return redirect()->back()->withErrors("请选择需要上传的头像");
+        }
+
+        if (! $request->file('avatar')->isValid()) {
+            return redirect()->back()->withErrors("文件上传失败");
+        }
+
+        if (! in_array($request->avatar->extension(), ["png", "jpg", "jpeg", "gif"])) {
+            return redirect()->back()->withErrors("请选择合法的文件");
+        }
+
+        $dir = "avatars/". date("Ymd", time());
+        $path = $request->avatar->store($dir);
+
+        $user = Auth::user();
+        $user->avatar = Storage::url($path);
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**

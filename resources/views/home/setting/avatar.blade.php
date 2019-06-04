@@ -10,7 +10,8 @@
                     <div class="row">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-11" style="margin-top: 20px;">
-                            <form>
+                            <form action="{{ route("home.setting.avatar-upload") }}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-group row">
                                     <strong for="inputEmail3" class="col-sm-2 col-form-label">头像</strong>
                                     <div class="col-sm-9">
@@ -20,7 +21,7 @@
                                 <div class="form-group row">
                                     <strong for="inputPassword3" class="col-sm-2 col-form-label">上传</strong>
                                     <div class="col-sm-9">
-                                        <input type="file" name=""><br>
+                                        <input type="file" name="avatar"><br>
                                         </p><span class="setting-description">请选择要上传的头像文件</span>
                                     </div>
                                 </div>

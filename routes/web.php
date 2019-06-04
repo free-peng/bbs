@@ -17,6 +17,7 @@ Route::namespace("Home")->group(function () {
     Route::get('/setting', 'SettingController@index')->name("home.setting.index");
     Route::get('/setting/password', 'SettingController@password')->name("home.setting.password");
     Route::get('/setting/avatar', 'SettingController@avatar')->name("home.setting.avatar");
+    Route::post("/setting/avatar-upload", 'SettingController@avatarUpload')->name('home.setting.avatar-upload');
 
     //话题详情和保存评论
     Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
