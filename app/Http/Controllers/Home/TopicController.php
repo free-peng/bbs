@@ -23,7 +23,13 @@ class TopicController extends Controller
         //评论内容
         $reviews = Review::where('topic_id', $request->id)->get();
 
-        return view('home.topic.index',compact('topic', 'reviews'));
+        //查询用户是否点赞
+        $like = Like::where(['user_id'=>Auth::user()->id, 'topic_id'=>$request->id])->count();
+
+        //查询总共点赞条数
+        $likes = Like::where('topic_id', $request->id)->count();
+
+        return view('home.topic.index',compact('topic', 'reviews', 'like', 'likes'));
     }
 
     //评论保存

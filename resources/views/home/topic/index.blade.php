@@ -14,7 +14,11 @@
                         {{ $topic->content }}
                     </li>
                     <li class="list-group-item">
-                        <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a></span>
+                        @if($like ===0)
+                        <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
+                        @else
+                            <span><a href="">已点赞</a>&nbsp;{{ $likes }}</span>
+                        @endif
                     </li>
                 </ul>
             </div>
