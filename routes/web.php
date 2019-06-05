@@ -26,6 +26,9 @@ Route::namespace("Home")->group(function () {
     Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
     Route::get('/topic/like/{id}', 'TopicController@like')->name('home.topic.like');
 
+    //搜索页
+    Route::get('/search', 'SearchController@index')->name('home.search.index');
+
     //发布新话题的页面
     Route::get('/release', 'ReleaseController@index')->name("home.release.index");
     Route::post('/release/save', 'ReleaseController@save')->name("home.release.save");
