@@ -22,9 +22,10 @@ Route::namespace("Home")->group(function () {
     Route::post("/setting/update", 'SettingController@update')->name('home.setting.update');
 
     //话题详情和保存评论
-    Route::get('/topic/{id}', 'TopicController@index')->name("home.topic.index");
+    Route::get('/topic', 'TopicController@index')->name("home.topic.index");
     Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
-    Route::get('/topic/like/{id}', 'TopicController@like')->name('home.topic.like');
+    Route::get('/topic/like', 'TopicController@like')->name('home.topic.like');
+    Route::get('/topic/reviewsLike', 'TopicController@reviewsLike')->name('home.topic.reviewsLike');
 
     //搜索页
     Route::get('/search', 'SearchController@index')->name('home.search.index');

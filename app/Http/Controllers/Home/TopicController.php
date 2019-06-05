@@ -57,12 +57,28 @@ class TopicController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * 话题点赞
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function like(Request $request)
     {
         $data['topic_id'] = $request->id;
         $data['user_id'] = Auth::user()->id;
 
         Like::create($data);
+
+        return redirect()->back();
+    }
+
+    public function reviewsLike(Request $request)
+    {
+        $like = Review::query()->findOrFail($request->id);
+
+        $like->likes = $like->likes + 1;
+
+        $like->save();
 
         return redirect()->back();
     }

@@ -19,7 +19,7 @@
                             @if($like ===0)
                             <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
                             @else
-                                <span><a href="">已点赞</a>&nbsp;{{ $likes }}</span>
+                                <span><a href="javaScript:void(0)">已点赞</a>&nbsp;{{ $likes }}</span>
                             @endif
                         </span>
                     </li>
@@ -38,7 +38,9 @@
                                 <span class="mt-0"><a href=""><span class="setting-description">{{ $review->user->name }}</span></a>&nbsp;
                                     <span class="setting-description">{{ $review->created_at }}</span>
                                 </span>
-                                <span class="post-cate setting-description" style="float:right;">赞</span>
+                                <span class="post-cate setting-description" style="float:right;">
+                                    <a href="{{ route('home.topic.reviewsLike',['id'=>$review->id]) }}">赞</a> {{ $review->likes }}
+                                </span>
                                 <p>{{ $review->content }}</p>
                             </div>
                         </div>
