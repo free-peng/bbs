@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\Home\PasswordRequest;
+use App\Http\Requests\Home\SettingRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,26 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('home.setting.index');
+        $user = User::query()->findOrFail(Auth::user()->id);
+
+        return view('home.setting.index', compact('user'));
+    }
+
+    public function update(SettingRequest $request)
+    {
+        $user = User::query()->findOrFail(Auth::user()->id);
+
+//        dump($request->all());
+//        dump($user);
+//        $user->fill($request->only(['weibo','github','company','sex']));
+        $user->weibo = $request->weibo;
+        $user->github = $request->github;
+        $user->company = $request->company;
+        $user->sex = $request->sex;
+
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**
