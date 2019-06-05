@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Requests\Home\PasswordRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
@@ -27,13 +30,28 @@ class SettingController extends Controller
         return view('home.setting.password');
     }
 
+    public function passwordUpdate(PasswordRequest $request)
+    {
+         $user = User::query()->findOrFail(Auth::user()->id);
+
+//        if (Hash::make($request->old_password) !== $user->password) {
+//            return '错误';
+//        }
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->back();
+    }
+
     /**
      * 设置头像
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function avatar()
     {
-        return view('home.setting.avatar');
+        $avatar = Auth::user()->avatar;
+
+        return view('home.setting.avatar', compact('avatar'));
     }
 
     /**

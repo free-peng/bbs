@@ -10,26 +10,30 @@
                     <div class="row">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-11" style="margin-top: 20px;">
-                            <form>
-                                <div class="form-group row">
-                                    <strong for="inputEmail3" class="col-sm-2 col-form-label">当前密码</strong>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputEmail3" placeholder="">
-                                        <span class="setting-description">密码不少于6个字符</span>
-                                    </div>
-                                </div>
+                            <form action="{{ route('home.setting.password-update') }}" method="post">
+                                @csrf
                                 <div class="form-group row">
                                     <strong for="inputPassword3" class="col-sm-2 col-form-label">新密码</strong>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="">
-                                        <span class="setting-description">密码不少于6个字符</span>
+                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="inputPassword3" placeholder="">
+                                        <span class="setting-description">密码不少于8个字符</span>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                         </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <strong for="inputPassword3" class="col-sm-2 col-form-label">确认密码</strong>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="">
-                                        <span class="setting-description">密码不少于6个字符</span>
+                                        <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" id="inputPassword3" placeholder="">
+                                        <span class="setting-description">密码不少于8个字符</span>
+                                        @error('password_confirmation')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
