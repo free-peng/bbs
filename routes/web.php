@@ -13,7 +13,12 @@
 
 Route::namespace("Home")->group(function () {
     Route::get('/', 'IndexController@index')->name("home");
+
+    //节点路由
     Route::get('/node', 'NodeController@index')->name("home.node.index");
+    Route::get('/node/topic', 'NodeController@nodeTopic')->name('home.node.node_topic');
+
+    //用户设置路由
     Route::get('/setting', 'SettingController@index')->name("home.setting.index");
     Route::get('/setting/password', 'SettingController@password')->name("home.setting.password");
     Route::get('/setting/avatar', 'SettingController@avatar')->name("home.setting.avatar");

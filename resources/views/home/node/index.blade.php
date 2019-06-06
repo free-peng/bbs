@@ -16,7 +16,7 @@
                            </div>
                            <div class="col-sm-10">
                                @foreach($group->nodes as $node)
-                               <a class="node" href="">{{ $node->name }}</a>
+                               <a class="node" href="{{ route('home.node.node_topic',['node_id'=>$node->id]) }}">{{ $node->name }}</a>
                                @endforeach
                            </div>
                        </div>
