@@ -47,6 +47,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('user.index') }}">用户管理</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('link.index') }}">友情链接</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

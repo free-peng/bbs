@@ -87,6 +87,15 @@ Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->gro
         'destroy' => 'backend.user.destroy',
     ]);
 
+    Route::resource('link', 'LinkController')->names([
+        'create' => 'backend.link.create',
+        'show' => 'backend.link.show',
+        'store' => 'backend.link.store',
+        'update' => 'backend.link.update',
+        'edit' => 'backend.link.edit',
+        'destroy' => 'backend.link.destroy',
+    ]);
+
 
     Route::get('/','IndexController@index');
 });
