@@ -13,6 +13,9 @@
 
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
+    <script type="text/javascript" src="js/nicEdit.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">

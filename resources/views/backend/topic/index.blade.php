@@ -42,6 +42,7 @@
                         <td>{{ $topic->pv }}</td>
                         <td>{{ $topic->create_at }}</td>
                         <td>
+                            <a href="{{ route('backend.topic.edit', ['id'=>$topic->id]) }}">编辑</a>
                             <a class="topic-delete" data-href="{{ route('backend.topic.destroy', ['id'=>$topic->id]) }}" href="javascript:void(0)">删除</a>
                         </td>
                     </tr>

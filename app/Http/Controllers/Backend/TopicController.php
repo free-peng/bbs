@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Home\ReleaseRequest;
+use App\Models\NodeGroup;
 use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -64,7 +66,11 @@ class TopicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $topic = Topics::query()->findOrFail($id);
+
+        $nodeGroups = NodeGroup::all();
+
+        return view('backend.topic.edit', compact('topic', 'nodeGroups'));
     }
 
     /**
@@ -74,9 +80,15 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReleaseRequest $request, $id)
     {
-        //
+        $topic = Topics::query()->findOrFail($id);
+
+        $topic->fill($request->only(['contetn', 'node_id', 'title']));
+
+        $topic->save();
+
+        return redirect()->back();
     }
 
     /**
