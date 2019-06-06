@@ -14,7 +14,7 @@ class ReleaseController extends Controller
     public function index()
     {
         $nodeGroups = NodeGroup::all();
-//        dump($nodeGroups);
+
         return view('home.release.index',compact('nodeGroups'));
     }
 

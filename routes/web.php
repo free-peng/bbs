@@ -40,6 +40,8 @@ Route::namespace("Home")->group(function () {
     //个人中心
     Route::get('/info', 'InfoController@index')->name("home.info.index");
     Route::get('/info/like', 'InfoController@like')->name("home.info.like");
+    Route::get('/info/edit', 'InfoController@edit')->name("home.info.edit");
+    Route::post('/info/save', 'InfoController@save')->name("home.info.save");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {

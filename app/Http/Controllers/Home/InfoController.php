@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Requests\Home\ReleaseRequest;
+use App\Models\NodeGroup;
 use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,5 +22,31 @@ class InfoController extends Controller
     public function like()
     {
         return view('home.info.like');
+    }
+
+    /**
+     * 文章编辑
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Request $request)
+    {
+        $topic = Topics::query()->findOrFail($request->id);
+
+        $nodeGroups = NodeGroup::all();
+
+        return view('home.info.edit', compact('topic', 'nodeGroups'));
+    }
+
+    public function save(ReleaseRequest $request)
+    {
+        $topic = Topics::query()->findOrFail($request->id);
+
+        $topic->fill($request->only(['title', 'node_id', 'content']));
+
+        $topic->save();
+
+        return redirect()->back();
     }
 }
