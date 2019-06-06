@@ -15,8 +15,8 @@
                                     <div class="media">
                                         <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <span class="" style="float:right; margin-top:10px;font-size:14px;"><a href="">删除</a></span>
-                                            <span class="" style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.edit', ['id'=>$topic->id]) }}">编辑</a>&nbsp;&nbsp;</span>
+                                            <span class="" style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.destroy', ['id'=>$topic->id]) }}">删除</a></span>
+                                            <span style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.edit', ['id'=>$topic->id]) }}">编辑</a>&nbsp;&nbsp;</span>
                                             <h6 class="mt-0"><a href="{{ route('home.topic.index', ['id'=>$topic->id]) }}">{{ $topic->title }}</a></h6>
                                             {{--@foreach($topic->group as $group)--}}
                                             <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>

@@ -39,6 +39,11 @@ class InfoController extends Controller
         return view('home.info.edit', compact('topic', 'nodeGroups'));
     }
 
+    /**
+     * 用户编辑话题保存
+     * @param ReleaseRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function save(ReleaseRequest $request)
     {
         $topic = Topics::query()->findOrFail($request->id);
@@ -46,6 +51,13 @@ class InfoController extends Controller
         $topic->fill($request->only(['title', 'node_id', 'content']));
 
         $topic->save();
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request)
+    {
+        Topics::destroy($request->id);
 
         return redirect()->back();
     }
