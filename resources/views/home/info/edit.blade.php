@@ -68,7 +68,7 @@
 @section("script")
     <script>
         bkLib.onDomLoaded(function() {
-            new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('edit-content');
+            new nicEditor({iconsPath : '{{ asset('js/nicEditorIcons.gif') }}'}).panelInstance('edit-content');
         });
     </script>
 @endsection

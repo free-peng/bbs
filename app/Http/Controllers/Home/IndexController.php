@@ -36,4 +36,14 @@ class IndexController extends Controller
         return view("home.index", compact('topics', 'links', 'popularTopics'));
     }
 
+    public function latest()
+    {
+        return view("home.index");
+    }
+
+    public function elite()
+    {
+        return view("home.index");
+    }
+
 }
