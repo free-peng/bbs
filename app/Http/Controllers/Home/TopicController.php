@@ -27,8 +27,14 @@ class TopicController extends Controller
         $reviews = Review::where('topic_id', $request->id)->get();
 
         //查询用户是否点赞
-        $like = Like::where(['user_id'=>Auth::user()->id, 'topic_id'=>$request->id])->count();
-
+//        if (isset(Auth::user()->id)) {
+//            $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count();
+//        } else {
+//             $like = false;
+//        }
+        isset(Auth::user()->id)
+            ? $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
+            :  $like = false;
         //查询总共点赞条数
         $likes = Like::where('topic_id', $request->id)->count();
 

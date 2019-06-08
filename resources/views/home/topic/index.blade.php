@@ -16,7 +16,7 @@
                     <li class="list-group-item">
                         <span style="float:right;">
                             <span>{{ $topic->pv }}&nbsp;次点击</span>
-                            @if($like ===0)
+                            @if($like === 0 || $link = false)
                             <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
                             @else
                                 <span><a href="javaScript:void(0)">已点赞</a>&nbsp;{{ $likes }}</span>
@@ -66,11 +66,9 @@
         </div>
         <!--右侧信息栏-->
         <div class="col-sm-3" style="margin-top: 15px;">
-            <div class="card" >
-                <div class="card-body">
-                    信息栏
-                </div>
-            </div>
+            @include('layouts/links')
+
+{{--            @include('layouts/popular')--}}
         </div>
     </div>
 @endsection
