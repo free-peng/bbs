@@ -45,7 +45,7 @@
                                 <div class="media">
                                     <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">9</span>
+                                        <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">{{ $topic->pv }}</span>
                                         <h6 class="mt-0"><a href="{{route('home.topic.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
                                         <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
                                         <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
@@ -60,8 +60,37 @@
             </div>
 
         </div>
-        <div class="col-sm-3" style="background: green">
-            后面广告位
+        <div class="col-sm-3">
+            <div class="card" style="margin-top: 15px;">
+                <div class="card-header">
+                    友情链接
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach($links as $link)
+                    <li class="list-group-item">
+                        <a href="{{ $link->url }}">{{ $link->name }}</a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top:15px;">
+                <div class="card-header">
+                    热门话题
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach($popularTopics as $popular)
+                        <li class="list-group-item">
+                            <div class="media">
+                                <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" width="20" height="20">
+                                <div class="media-body">
+                                    <a href="{{ route('home.topic.index',['id'=>$popular->id]) }}">{{ $popular->title }}</a>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 @endsection
