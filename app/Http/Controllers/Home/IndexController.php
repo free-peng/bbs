@@ -18,7 +18,14 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         //查询话题
-        $topics = Topics::all();
+        $topics = Topics::query()
+            ->when($request->tab == 'latest', function($query) use($request) {
+                return $query->orderBy('created_at', 'desc');
+            })
+            ->when($request->tab == 'elite', function($query) use($request) {
+                return $query->orderBy('pv', 'desc');
+            })
+            ->paginate();
 
         return view("home.index", compact('topics', 'links', 'popularTopics'));
     }
