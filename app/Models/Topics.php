@@ -25,6 +25,11 @@ class Topics extends Model
         return $this->hasMany(Like::class, 'topic_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Review::class, 'topic_id');
+    }
+
     /**
      * 用户作用域
      *

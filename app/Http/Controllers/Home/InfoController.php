@@ -32,7 +32,7 @@ class InfoController extends Controller
      */
     public function edit(Request $request)
     {
-        $topic = Topics::query()->findOrFail($request->id);
+        $topic = Topics::query()->user()->findOrFail($request->id);
 
         $nodeGroups = NodeGroup::all();
 
@@ -46,7 +46,7 @@ class InfoController extends Controller
      */
     public function save(ReleaseRequest $request)
     {
-        $topic = Topics::query()->findOrFail($request->id);
+        $topic = Topics::query()->user()->findOrFail($request->id);
 
         $topic->fill($request->only(['title', 'node_id', 'content']));
 
@@ -57,7 +57,7 @@ class InfoController extends Controller
 
     public function destroy(Request $request)
     {
-        Topics::destroy($request->id);
+        Topics::query()->user()->destroy($request->id);
 
         return redirect()->back();
     }

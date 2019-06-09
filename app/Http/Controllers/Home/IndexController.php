@@ -20,19 +20,6 @@ class IndexController extends Controller
         //查询话题
         $topics = Topics::all();
 
-        //友情链接查询
-        $links = Link::query()
-            ->where('status', 1)
-            ->orderBy('sequence')
-            ->limit(10)
-            ->get();
-
-        //热门话题
-        $popularTopics = Topics::query()
-            ->orderBy('pv', 'desc')
-            ->limit(10)
-            ->get();
-
         return view("home.index", compact('topics', 'links', 'popularTopics'));
     }
 

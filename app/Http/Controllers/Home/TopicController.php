@@ -19,26 +19,17 @@ class TopicController extends Controller
     {
         //话题内容
         $topic = Topics::query()->findOrFail($request->id);
+
         //文章点击次数统计
         $topic->pv = $topic->pv + 1;
         $topic->save();
 
-        //评论内容
-        $reviews = Review::where('topic_id', $request->id)->get();
-
-        //查询用户是否点赞
-//        if (isset(Auth::user()->id)) {
-//            $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count();
-//        } else {
-//             $like = false;
-//        }
+        //查看用户是否已点赞
         isset(Auth::user()->id)
             ? $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
             :  $like = false;
-        //查询总共点赞条数
-        $likes = Like::where('topic_id', $request->id)->count();
 
-        return view('home.topic.index',compact('topic', 'reviews', 'like', 'likes'));
+        return view('home.topic.index',compact('topic', 'like'));
     }
 
     //评论保存

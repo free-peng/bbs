@@ -1,5 +1,7 @@
+
 @extends('layouts.app')
 @section('content')
+
     <div class="row">
         <div class="col-sm-9">
             <div class="card" >
@@ -17,9 +19,9 @@
                         <span style="float:right;">
                             <span>{{ $topic->pv }}&nbsp;次点击</span>
                             @if($like === 0 || $link = false)
-                            <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ $likes }}</span>
+                            <span><a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>&nbsp;{{ optional($topic->like)->count() }}</span>
                             @else
-                                <span><a href="javaScript:void(0)">已点赞</a>&nbsp;{{ $likes }}</span>
+                                <span><a href="javaScript:void(0)">已点赞</a>&nbsp;{{ optional($topic->like)->count() }}</span>
                             @endif
                         </span>
                     </li>
@@ -27,21 +29,21 @@
             </div>
             <div class="card" style="margin-top: 10px;">
                 <div class="card-header">
-                    <span>共收到{{ $reviews->count() }}条回复</span>
+                    <span>共收到{{ optional($topic->comments)->count() }}条回复</span>
                 </div>
                 <ul class="list-group list-group-flush">
-                    @foreach($reviews as $review)
+                    @foreach($topic->comments as $comment)
                     <li class="list-group-item">
                         <div class="media">
-                            <img class="mr-3" src="http://cdn.guanggoo.com//static/avatar/37/m_default.png" alt="Generic placeholder image">
+                            <img class="mr-3" src="{{ $comment->user->avatar }}" alt="加载失败">
                             <div class="media-body">
-                                <span class="mt-0"><a href=""><span class="setting-description">{{ $review->user->name }}</span></a>&nbsp;
-                                    <span class="setting-description">{{ $review->created_at }}</span>
+                                <span class="mt-0"><a href=""><span class="setting-description">{{ $comment->user->name }}</span></a>&nbsp;
+                                    <span class="setting-description">{{ $comment->created_at }}</span>
                                 </span>
                                 <span class="post-cate setting-description" style="float:right;">
-                                    <a href="{{ route('home.topic.reviewsLike',['id'=>$review->id]) }}">赞</a> {{ $review->likes }}
+                                    <a href="{{ route('home.topic.reviewsLike',['id'=>$comment->id]) }}">赞</a> {{ $comment->likes }}
                                 </span>
-                                <p>{{ $review->content }}</p>
+                                <p>{{ $comment->content }}</p>
                             </div>
                         </div>
                     </li>
@@ -65,10 +67,10 @@
             </div>
         </div>
         <!--右侧信息栏-->
-        <div class="col-sm-3" style="margin-top: 15px;">
+        <div class="col-sm-3">
             @include('layouts/links')
 
-{{--            @include('layouts/popular')--}}
+            @include('layouts/popular')
         </div>
     </div>
 @endsection
