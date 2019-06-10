@@ -10,7 +10,7 @@ class Review extends Model
 
     public function topic()
     {
-        return $this->belongsTo(Node::class, 'topic_id');
+        return $this->belongsTo(Topics::class, 'topic_id');
     }
 
     public function user()

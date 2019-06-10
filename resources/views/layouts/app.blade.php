@@ -65,7 +65,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('home.setting.index')  }}">设置</a>
-                                    <a class="dropdown-item" href="{{ route('home.info.index') }}">个人中心</a>
+                                    <a class="dropdown-item" href="{{ route('home.info.index', ['id'=> \Illuminate\Support\Facades\Auth::user()->id]) }}">个人中心</a>
                                     <a class="dropdown-item" href="{{ route('home.release.index') }}">发布主题</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

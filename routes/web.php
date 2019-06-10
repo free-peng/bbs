@@ -45,6 +45,7 @@ Route::namespace("Home")->group(function () {
     //个人中心
     Route::get('/info', 'InfoController@index')->name("home.info.index");
     Route::get('/info/like', 'InfoController@like')->name("home.info.like");
+    Route::get('/info/comments', 'InfoController@comments')->name("home.info.comments");
     Route::get('/info/edit', 'InfoController@edit')->name("home.info.edit");
     Route::post('/info/save', 'InfoController@save')->name("home.info.save");
     Route::get('/info/destroy', 'InfoController@destroy')->name("home.info.destroy");

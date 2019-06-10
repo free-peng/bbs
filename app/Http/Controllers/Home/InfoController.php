@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\Home\ReleaseRequest;
+use App\Models\Like;
 use App\Models\NodeGroup;
+use App\Models\Review;
 use App\Models\Topics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,17 +13,40 @@ use Illuminate\Support\Facades\Auth;
 
 class InfoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //查询出当前用户所发表的文章
-        $topics = Topics::where('user_id',Auth::user()->id)->get();
+        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
+        $id = $request->id;
 
-        return view('home.info.index', compact('topics'));
+        //查询出当前用户所发表的文章
+        $topics = Topics::where('user_id',Auth::user()->id)->paginate();
+
+        return view('home.info.index', compact('topics','meOrHe','id'));
     }
 
-    public function like()
+    /**
+     * 他人点赞或者我的点赞
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function like(Request $request)
     {
-        return view('home.info.like');
+        $id = $request->id;
+        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
+
+        $likes = Like::query()->where('user_id', $request->id)->paginate();
+        return view('home.info.like', compact('likes','meOrHe','id'));
+
+    }
+
+    public function comments(Request $request)
+    {
+        $id = $request->id;
+        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
+
+        $comments = Review::query()->where('user_id', $request->id)->paginate();
+        return view('home.info.comments', compact('comments','meOrHe','id'));
+
     }
 
     /**
