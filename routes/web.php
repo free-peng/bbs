@@ -51,6 +51,7 @@ Route::namespace("Home")->group(function () {
     Route::post('/info/save', 'InfoController@save')->name("home.info.save");
     Route::get('/info/destroy', 'InfoController@destroy')->name("home.info.destroy");
     Route::get('/info/attention', 'InfoController@attention')->name("home.info.attention");
+    Route::get('/info/deleteAttention', 'InfoController@deleteAttention')->name("home.info.deleteAttention");
     Route::get('/info/following', 'InfoController@following')->name("home.info.following");
     Route::get('/info/collection', 'InfoController@collection')->name("home.info.collection");
     Route::get('/info/followers', 'InfoController@followers')->name("home.info.followers");

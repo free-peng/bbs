@@ -32,6 +32,5 @@ class ViewServiceProvider extends ServiceProvider
         View::composer("layouts.app", NavComposer::class);
         View::composer("layouts.links", LinkComposer::class);
         View::composer("layouts.popular", PopularComposer::class);
-        View::composer("layouts.info_left", InfoComposer::class);
     }
 }

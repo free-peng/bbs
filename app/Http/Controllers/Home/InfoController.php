@@ -9,6 +9,7 @@ use App\Models\Like;
 use App\Models\NodeGroup;
 use App\Models\Review;
 use App\Models\Topics;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,10 @@ class InfoController extends Controller
         //查询出当前用户所发表的文章
         $topics = Topics::where('user_id',Auth::user()->id)->paginate();
 
-        return view('home.info.index', compact('topics','meOrHe','id'));
+        $user = User::query()->findOrFail($request->id);
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.index', compact('topics','meOrHe','id','user','isAttention'));
     }
 
     /**
@@ -37,7 +41,12 @@ class InfoController extends Controller
         $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
 
         $likes = Like::query()->where('user_id', $request->id)->paginate();
-        return view('home.info.like', compact('likes','meOrHe','id'));
+
+        $user = User::query()->findOrFail($request->id);
+
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.like', compact('likes','meOrHe','id','user', 'isAttention'));
 
     }
 
@@ -53,7 +62,11 @@ class InfoController extends Controller
         $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
 
         $comments = Review::query()->where('user_id', $request->id)->paginate();
-        return view('home.info.comments', compact('comments','meOrHe','id'));
+        $user = User::query()->findOrFail($request->id);
+
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.comments', compact('comments','meOrHe','id','user','isAttention'));
 
     }
 
@@ -76,6 +89,20 @@ class InfoController extends Controller
     }
 
     /**
+     * 取消关注
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteAttention(Request $request)
+    {
+        $delete = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id]);
+
+        $delete->delete();
+
+        return redirect()->back();
+    }
+
+    /**
      * 查询出他的关注或者我的关注
      *
      * @param Request $request
@@ -88,7 +115,11 @@ class InfoController extends Controller
 
         $followings = Attention::query()->where('user_id', $request->id)->get();
 
-        return view('home.info.attention', compact('followings','meOrHe','id'));
+        $user = User::query()->findOrFail($request->id);
+
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.attention', compact('followings','meOrHe','id','user','isAttention'));
     }
 
     /**
@@ -103,7 +134,11 @@ class InfoController extends Controller
 
         $followers = Attention::query()->where('attention_user_id', $request->id)->get();
 
-        return view('home.info.followers', compact('followers','meOrHe','id'));
+        $user = User::query()->findOrFail($request->id);
+
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.followers', compact('followers','meOrHe','id','user','isAttention'));
     }
 
     /**
@@ -118,7 +153,11 @@ class InfoController extends Controller
 
         $collections = Collection::query()->where('user_id', $request->id)->paginate();
 
-        return view('home.info.collection', compact('collections','meOrHe','id'));
+        $user = User::query()->findOrFail($request->id);
+
+        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
+
+        return view('home.info.collection', compact('collections','meOrHe','id','user','isAttention'));
     }
 
 
