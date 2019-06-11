@@ -12,6 +12,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/2.2.7/echarts-all.js"></script>
+
 
     <script type="text/javascript" src="js/nicEdit.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
