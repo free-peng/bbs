@@ -30,6 +30,11 @@ class Topics extends Model
         return $this->hasMany(Review::class, 'topic_id');
     }
 
+    public function collection()
+    {
+        return $this->hasMany(Review::class, 'topic_id');
+    }
+
     /**
      * 用户作用域
      *

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Collection;
 use App\Models\Like;
 use App\Models\Review;
 use App\Models\Topics;
@@ -29,10 +30,19 @@ class TopicController extends Controller
             ? $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
             :  $like = false;
 
-        return view('home.topic.index',compact('topic', 'like'));
+        //查看用户是否已点赞
+        isset(Auth::user()->id)
+            ? $collection = Collection::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
+            :  $collection = false;
+
+        return view('home.topic.index',compact('topic', 'like','collection'));
     }
 
-    //评论保存
+    /**
+     * 评论保存
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function reviewSave(Request $request)
     {
         $rules = [
@@ -69,6 +79,28 @@ class TopicController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * 收藏话题
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function collection(Request $request)
+    {
+        $collection = new Collection();
+
+        $collection->topic_id = $request->id;
+        $collection->user_id = Auth::user()->id;
+
+        $collection->save();
+
+        return redirect()->back();
+    }
+
+    /**
+     * 评论点赞
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function reviewsLike(Request $request)
     {
         $like = Review::query()->findOrFail($request->id);

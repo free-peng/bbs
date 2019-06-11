@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\Home\ReleaseRequest;
 use App\Models\Attention;
+use App\Models\Collection;
 use App\Models\Like;
 use App\Models\NodeGroup;
 use App\Models\Review;
@@ -88,6 +89,21 @@ class InfoController extends Controller
         $followings = Attention::query()->where('user_id', $request->id)->get();
 
         return view('home.info.attention', compact('followings','meOrHe','id'));
+    }
+
+    /**
+     * 查询出我的收藏或者他的收藏
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function collection(Request $request)
+    {
+        $id = $request->id;
+        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
+
+        $collections = Collection::query()->where('user_id', $request->id)->paginate();
+
+        return view('home.info.collection', compact('collections','meOrHe','id'));
     }
 
     /**

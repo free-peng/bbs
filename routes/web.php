@@ -31,6 +31,7 @@ Route::namespace("Home")->group(function () {
     Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
     Route::get('/topic/like', 'TopicController@like')->name('home.topic.like');
     Route::get('/topic/reviewsLike', 'TopicController@reviewsLike')->name('home.topic.reviewsLike');
+    Route::get('/topic/collection', 'TopicController@collection')->name('home.topic.collection');
 
     //搜索页
     Route::get('/search', 'SearchController@index')->name('home.search.index');
@@ -51,6 +52,7 @@ Route::namespace("Home")->group(function () {
     Route::get('/info/destroy', 'InfoController@destroy')->name("home.info.destroy");
     Route::get('/info/attention', 'InfoController@attention')->name("home.info.attention");
     Route::get('/info/following', 'InfoController@following')->name("home.info.following");
+    Route::get('/info/collection', 'InfoController@collection')->name("home.info.collection");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
