@@ -40,7 +40,7 @@
                     </div>
                     @if (\Illuminate\Support\Facades\Request::has('id'))
                     <div class="info-div">.
-                        <a href="" type="button" class=" btn-light btn-block">关注</a>
+                        <a href="{{ route('home.info.attention',['id'=>$id]) }}" type="button" class=" btn-light btn-block">关注</a>
                     </div>
                     @endif
                 </div>

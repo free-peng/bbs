@@ -17,7 +17,7 @@
     <div class="card" style="margin-top:15px;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>{{ $meOrHe }}的关系</b></li>
-            <li class="list-group-item"><a href="">{{ $meOrHe }}的关注</a></li>
+            <li class="list-group-item"><a href="{{ route('home.info.following',['id'=>$id]) }}">{{ $meOrHe }}的关注</a></li>
             <li class="list-group-item"><a href="">{{ $meOrHe }}的粉丝</a></li>
         </ul>
     </div>

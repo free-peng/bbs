@@ -49,6 +49,8 @@ Route::namespace("Home")->group(function () {
     Route::get('/info/edit', 'InfoController@edit')->name("home.info.edit");
     Route::post('/info/save', 'InfoController@save')->name("home.info.save");
     Route::get('/info/destroy', 'InfoController@destroy')->name("home.info.destroy");
+    Route::get('/info/attention', 'InfoController@attention')->name("home.info.attention");
+    Route::get('/info/following', 'InfoController@following')->name("home.info.following");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
