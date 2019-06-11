@@ -92,6 +92,21 @@ class InfoController extends Controller
     }
 
     /**
+     * 我的或者他的粉丝
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function followers(Request $request)
+    {
+        $id = $request->id;
+        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
+
+        $followers = Attention::query()->where('attention_user_id', $request->id)->get();
+
+        return view('home.info.followers', compact('followers','meOrHe','id'));
+    }
+
+    /**
      * 查询出我的收藏或者他的收藏
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -105,6 +120,8 @@ class InfoController extends Controller
 
         return view('home.info.collection', compact('collections','meOrHe','id'));
     }
+
+
 
     /**
      * 文章编辑

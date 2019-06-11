@@ -53,6 +53,7 @@ Route::namespace("Home")->group(function () {
     Route::get('/info/attention', 'InfoController@attention')->name("home.info.attention");
     Route::get('/info/following', 'InfoController@following')->name("home.info.following");
     Route::get('/info/collection', 'InfoController@collection')->name("home.info.collection");
+    Route::get('/info/followers', 'InfoController@followers')->name("home.info.followers");
 });
 
 Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->group(function () {
