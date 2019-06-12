@@ -27,6 +27,7 @@
                     <th scope="col">节点分组</th>
                     <th scope="col">节点别名</th>
                     <th scope="col">排序</th>
+                    <th scope="col">状态</th>
                     <th scope="col">创建时间</th>
                     <th scope="col">操作</th>
                 </tr>
@@ -39,7 +40,8 @@
                         <td>{{ $node->group->name }}</td>
                         <td>{{ $node->alias }}</td>
                         <td>{{ $node->sequence }}</td>
-                        <td>{{ $node->create_at }}</td>
+                        <td>{{ $node->status }}</td>
+                        <td>{{ $node->created_at }}</td>
                         <td>
                             <a href="{{ route('backend.node.edit', ['id'=>$node->id]) }}">编辑</a>
                             <a class="node-delete" data-href="{{ route('backend.node.destroy', ['id'=>$node->id]) }}" href="javascript:void(0)">删除</a>

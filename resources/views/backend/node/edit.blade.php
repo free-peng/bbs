@@ -49,8 +49,16 @@
                             <select class="custom-select" name="group_id">
                                 <option selected>--请选择--</option>
                                 @foreach($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    <option value="{{ $group->id }}" {{ $group->id == $nodes->group_id ? 'selected' : '' }}>{{ $group->name }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sequence">是否显示</label>
+                            <select class="custom-select" name="status">
+                                <option selected>--请选择--</option>
+                                <option value="1" {{ $nodes->status == 1 ? 'selected' : '' }}>显示</option>
+                                <option value="0" {{ $nodes->status == 0 ? 'selected' : '' }}>隐藏</option>
                             </select>
                         </div>
                         <div style="margin-top: 10px;">

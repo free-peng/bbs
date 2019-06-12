@@ -93,6 +93,7 @@ class NodeController extends Controller
         $node->group_id = $request->group_id;
         $node->alias = $request->alias;
         $node->sequence = $request->sequence;
+        $node->status = $request->status;
 
         $node->save();
 

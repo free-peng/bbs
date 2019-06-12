@@ -52,7 +52,16 @@
                         @endforeach
                     </select>
                 </div>
-                <div style="margin-top: 10px;">
+                <div class="form-group">
+                    <label for="sequence">是否显示</label>
+                    <select class="custom-select" name="status">
+                        <option selected>--请选择--</option>
+                        <option value="1">显示</option>
+                        <option value="0">隐藏</option>
+                    </select>
+                </div>
+
+                    <div style="margin-top: 10px;">
                     <button type="submit" class="btn btn-success">保存</button>
                     <button type="reset" class="btn btn-warning">重置</button>
                 </div>
