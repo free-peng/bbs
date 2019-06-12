@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Link;
+use App\Models\NodeGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,13 @@ class IndexController extends Controller
         }
 
         return view("home.index", compact('topics'));
+    }
+
+    public function interest()
+    {
+        $nodeGroups = NodeGroup::all();
+
+        return view('home.interest', compact('nodeGroups'));
     }
 
     public function latest()

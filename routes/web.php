@@ -13,6 +13,7 @@
 
 Route::namespace("Home")->group(function () {
     Route::get('/', 'IndexController@index')->name("home");
+    Route::get('/interest', 'IndexController@interest')->name("home.interest");
 
     //节点路由
     Route::get('/node', 'NodeController@index')->name("home.node.index");
