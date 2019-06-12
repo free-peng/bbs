@@ -19,7 +19,7 @@
                             <a class="nav-link" href="#">兴趣节点</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">关注的人</a>
+                            <a class="nav-link" href="{{ route('home',['tab'=>'following']) }}">关注的人</a>
                         </li>
                     </ul>
                 </div>

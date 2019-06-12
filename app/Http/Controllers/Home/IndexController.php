@@ -25,9 +25,18 @@ class IndexController extends Controller
             ->when($request->tab == 'elite', function($query) use($request) {
                 return $query->orderBy('pv', 'desc');
             })
+            ->when($request->tab == 'following', function($query) use($request) {
+                return $query->orderBy('pv', 'desc');
+            })
             ->paginate();
 
-        return view("home.index", compact('topics', 'links', 'popularTopics'));
+        if ($request->tab == 'following') {
+            $topics = Topics::query()->select()->join('attentions',function($query) {
+                $query->on('attentions.attention_user_id', 'topics.user_id')->where('attentions.user_id', Auth::id());
+            })->paginate();
+        }
+
+        return view("home.index", compact('topics'));
     }
 
     public function latest()
