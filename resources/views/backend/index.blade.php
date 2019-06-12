@@ -6,9 +6,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">用户</li>
                     <li class="list-group-item">
-                        <div>今日注册：20</div>
-                        <div>今日注册：20</div>
-                        <div>今日注册：20</div>
+                        <div>用户总数：{{ $userCount }}</div>
+                        <div>今日注册：{{ $todayUser }}</div>
                     </li>
                 </ul>
             </div>
@@ -19,9 +18,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">话题</li>
                     <li class="list-group-item">
-                        <div>今日发表：20</div>
-                        <div>今日发表：20</div>
-                        <div>今日发表：20</div>
+                        <div>话题总数：{{ $topicCount }}</div>
+                        <div>今日发表：{{ $todayTopic }}</div>
                     </li>
 
                 </ul>
@@ -32,9 +30,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">回复</li>
                     <li class="list-group-item">
-                        <div>今日回复：20</div>
-                        <div>今日回复：20</div>
-                        <div>今日回复：20</div>
+                        <div>回复总数：{{ $reviewCount }}</div>
+                        <div>今日回复：{{ $todayReview }}</div>
                     </li>
                 </ul>
             </div>

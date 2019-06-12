@@ -58,7 +58,7 @@ class TopicController extends Controller
         $data['user_id'] = Auth::user()->id;
 
         $review = new Review;
-        $review->fill(array_merge($data, $request->all()));
+        $review->fill(array_merge($data, $request->only('topic_id','content')));
         $review->save();
 
         return redirect()->back();

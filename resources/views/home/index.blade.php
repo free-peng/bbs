@@ -38,7 +38,9 @@
                             @foreach($topics as $topic)
                             <li class="list-group-item">
                                 <div class="media">
-                                    <a href="{{ route('home.info.index',['id'=>optional($topic->user)->id]) }}"><img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="失败"></a>
+                                    <a href="{{ route('home.info.index',['id'=>optional($topic->user)->id]) }}">
+                                        <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="失败" width="50" height="50">
+                                    </a>
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">{{ $topic->pv }}</span>
                                         <h6 class="mt-0"><a href="{{route('home.topic.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>

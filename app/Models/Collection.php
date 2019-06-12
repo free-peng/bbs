@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collection extends Model
 {
+    //收藏表
     protected $fillable = ['user_id', 'topic->id'];
 
     public function user()

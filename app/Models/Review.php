@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    //评论表
     protected $fillable = ['topic_id','user_id', 'content'];
 
     public function topic()
