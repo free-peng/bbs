@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Link;
+use App\Models\Node;
 use App\Models\NodeGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -37,7 +38,14 @@ class IndexController extends Controller
             })->paginate();
         }
 
-        return view("home.index", compact('topics'));
+//        查询出话题上面的推荐节点
+        $nodes = Node::query()
+            ->where('status',1)
+            ->orderBy('sequence')
+            ->limit(8)
+            ->get();
+
+        return view("home.index", compact('topics','nodes'));
     }
 
     public function interest()

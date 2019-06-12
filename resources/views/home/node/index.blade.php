@@ -25,6 +25,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            @include('layouts/links')
+            @include('layouts/popular')
+        </div>
     </div>
 @endsection

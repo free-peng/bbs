@@ -29,8 +29,9 @@
             </div>
 
         </div>
-        <div class="col-sm-3" style="background: green">
-            后面广告位
+        <div class="col-sm-3">
+            @include('layouts/links')
+            @include('layouts/popular')
         </div>
     </div>
 @endsection

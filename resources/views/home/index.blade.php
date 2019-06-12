@@ -31,14 +31,9 @@
                     <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                    <a class="home-index" href="">你问我答</a>
-                                    <a class="home-index" href="">同城活动</a>
-                                    <a class="home-index" href="">找工作</a>
-                                    <a class="home-index" href="">IT技术</a>
-                                    <a class="home-index" href="">金融财经</a>
-                                    <a class="home-index" href="">创业创客</a>
-                                    <a class="home-index" href="">城市建设</a>
-                                    <a class="home-index" href="">社区新人必读</a>
+                                @foreach($nodes as $node)
+                                    <a class="home-index" href="{{ route('home.node.node_topic',['node_id'=>$node->id]) }}">{{ $node->name }}</a>
+                                @endforeach
                             </li>
                             @foreach($topics as $topic)
                             <li class="list-group-item">
@@ -63,7 +58,6 @@
         </div>
         <div class="col-sm-3">
             @include('layouts/links')
-
             @include('layouts/popular')
         </div>
     </div>
