@@ -106,6 +106,7 @@ Route::namespace("Backend")->prefix("backend")->middleware('auth', 'admin')->gro
 
 
     Route::get('/','IndexController@index');
+    Route::post('/lineChart','IndexController@lineChart')->name('backend.index.lineChart');
 });
 
 Auth::routes();
