@@ -61,6 +61,10 @@ class TopicController extends Controller
         $review->fill(array_merge($data, $request->only('topic_id','content')));
         $review->save();
 
+        $topic = Topics::query()->findOrFail($request->topic_id);
+        $topic->active_time = date('Y-m-d h:i:s', time());
+        $topic->save();
+
         return redirect()->back();
     }
 
@@ -76,6 +80,10 @@ class TopicController extends Controller
 
         Like::create($data);
 
+        $topic = Topics::query()->findOrFail($request->id);
+        $topic->active_time = date('Y-m-d h:i:s', time());
+        $topic->save();
+
         return redirect()->back();
     }
 
@@ -90,8 +98,11 @@ class TopicController extends Controller
 
         $collection->topic_id = $request->id;
         $collection->user_id = Auth::user()->id;
-
         $collection->save();
+
+        $topic = Topics::query()->findOrFail($request->id);
+        $topic->active_time = date('Y-m-d h:i:s', time());
+        $topic->save();
 
         return redirect()->back();
     }

@@ -21,6 +21,7 @@ class ReleaseController extends Controller
     public function save(ReleaseRequest $request)
     {
         $data['user_id'] = Auth::id();
+        $data['active_time'] = date('Y-m-d h:i:s', time());
 
         $topic = new Topics;
         $topic->fill(array_merge($request->only('title','node_id','content'), $data));

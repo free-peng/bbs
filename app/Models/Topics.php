@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Topics extends Model
 {
-    protected $fillable = ['title','content','node_id','user_id'];
+    protected $fillable = ['title','content','node_id','user_id','active_time'];
 
 
     public function nodes()

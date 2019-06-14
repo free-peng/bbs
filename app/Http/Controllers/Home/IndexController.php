@@ -30,6 +30,7 @@ class IndexController extends Controller
             ->when($request->tab == 'following', function($query) use($request) {
                 return $query->orderBy('pv', 'desc');
             })
+            ->orderBy('active_time', 'desc')
             ->paginate();
 
         if ($request->tab == 'following') {
