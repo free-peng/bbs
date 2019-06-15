@@ -53,6 +53,12 @@ class IndexController extends Controller
     {
         $nodeGroups = NodeGroup::all();
 
+//        $nodes = Node::query()
+//            ->where('status',1)
+//            ->orderBy('sequence')
+//            ->limit(8)
+//            ->get();
+
         return view('home.interest', compact('nodeGroups'));
     }
 

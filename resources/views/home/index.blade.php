@@ -44,9 +44,9 @@
                                     <div class="media-body">
                                         <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">{{ $topic->pv }}</span>
                                         <h6 class="mt-0"><a href="{{route('home.topic.index', ['id'=>$topic->id])}}">{{ $topic->title }}</a></h6>
-                                        <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
-                                        <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
-                                        <span class="post-cate"><a href="">{{ $topic->created_at }}</a></span>
+                                        <span class="post-cate"><a href="{{ route('home.node.node_topic',['node_id'=>optional($topic->nodes)->id]) }}">{{ optional($topic->nodes)->name }}</a></span>
+                                        <span class="post-cate"><a href="{{ route('home.info.index',['id'=>optional($topic->user)->id]) }}">{{ optional($topic->user)->name }}</a></span>
+                                        <span class="post-cate">{{ $topic->created_at }}</span>
                                     </div>
                                 </div>
                             </li>

@@ -116,7 +116,7 @@ class InfoController extends Controller
     public function collection(Request $request)
     {
         $collections = Collection::query()->where('user_id', $request->id)->paginate();
-        
+
         return view('home.info.collection', compact('collections'));
     }
 
