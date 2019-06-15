@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        @include('layouts.info_left', ['id'=>$id,'meOrHe'=>$meOrHe])
+        @include('layouts.info_left')
         <div class="col-sm-7">
             <div class="card">
                 <ul class="list-group list-group-flush">
@@ -10,7 +10,7 @@
                             <div class="media">
                                 <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="Generic placeholder image">
                                 <div class="media-body">
-                                    @if($meOrHe == '我')
+                                    @if(request('id') == \Illuminate\Support\Facades\Auth::user()->id)
                                     <span class="" style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.destroy', ['id'=>$topic->id]) }}">删除</a></span>
                                     <span style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.edit', ['id'=>$topic->id]) }}">编辑</a>&nbsp;&nbsp;</span>
                                     @endif
@@ -26,6 +26,6 @@
                 {{ $topics->links() }}
             </div>
         </div>
-        @include('layouts.info_right', [$meOrHe,$user,$isAttention])
+        @include('layouts.info_right')
     </div>
 @endsection

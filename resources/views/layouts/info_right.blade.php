@@ -11,7 +11,7 @@
                 <span class="info-span">{{ optional($user->collection)->count() }}</span>
 
             </div>
-            @if ($meOrHe == '他')
+            @if (request('id') != \Illuminate\Support\Facades\Auth::user()->id)
                 <div class="info-div">.
                     @if ($isAttention == 0)
                     <a href="{{ route('home.info.attention',['id'=>$id]) }}" type="button" class=" btn-light btn-block">关注</a>

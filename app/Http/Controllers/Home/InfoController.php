@@ -18,16 +18,10 @@ class InfoController extends Controller
 {
     public function index(Request $request)
     {
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-        $id = $request->id;
-
         //查询出当前用户所发表的文章
         $topics = Topics::where('user_id',Auth::user()->id)->paginate();
 
-        $user = User::query()->findOrFail($request->id);
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.index', compact('topics','meOrHe','id','user','isAttention'));
+        return view('home.info.index', compact('topics'));
     }
 
     /**
@@ -37,16 +31,9 @@ class InfoController extends Controller
      */
     public function like(Request $request)
     {
-        $id = $request->id;
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-
         $likes = Like::query()->where('user_id', $request->id)->paginate();
 
-        $user = User::query()->findOrFail($request->id);
-
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.like', compact('likes','meOrHe','id','user', 'isAttention'));
+        return view('home.info.like', compact('likes'));
 
     }
 
@@ -58,15 +45,9 @@ class InfoController extends Controller
      */
     public function comments(Request $request)
     {
-        $id = $request->id;
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-
         $comments = Review::query()->where('user_id', $request->id)->paginate();
-        $user = User::query()->findOrFail($request->id);
 
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.comments', compact('comments','meOrHe','id','user','isAttention'));
+        return view('home.info.comments', compact('comments'));
 
     }
 
@@ -110,16 +91,9 @@ class InfoController extends Controller
      */
     public function following(Request $request)
     {
-        $id = $request->id;
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-
         $followings = Attention::query()->where('user_id', $request->id)->get();
 
-        $user = User::query()->findOrFail($request->id);
-
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.attention', compact('followings','meOrHe','id','user','isAttention'));
+        return view('home.info.attention', compact('followings'));
     }
 
     /**
@@ -129,16 +103,9 @@ class InfoController extends Controller
      */
     public function followers(Request $request)
     {
-        $id = $request->id;
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-
         $followers = Attention::query()->where('attention_user_id', $request->id)->get();
 
-        $user = User::query()->findOrFail($request->id);
-
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.followers', compact('followers','meOrHe','id','user','isAttention'));
+        return view('home.info.followers', compact('followers'));
     }
 
     /**
@@ -148,16 +115,9 @@ class InfoController extends Controller
      */
     public function collection(Request $request)
     {
-        $id = $request->id;
-        $meOrHe = Auth::user()->id == $request->id ? '我' : '他';
-
         $collections = Collection::query()->where('user_id', $request->id)->paginate();
-
-        $user = User::query()->findOrFail($request->id);
-
-        $isAttention = Attention::query()->where(['user_id'=>Auth::user()->id, 'attention_user_id'=>$request->id])->count();
-
-        return view('home.info.collection', compact('collections','meOrHe','id','user','isAttention'));
+        
+        return view('home.info.collection', compact('collections'));
     }
 
 

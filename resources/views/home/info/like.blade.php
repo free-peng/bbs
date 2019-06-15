@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        @include('layouts.info_left', ['id'=>$id,'meOrHe'=>$meOrHe])
+        @include('layouts.info_left')
         <div class="col-sm-7">
             <div class="card">
                 <ul class="list-group list-group-flush">
@@ -20,6 +20,6 @@
                 {{ $likes->links() }}
             </div>
         </div>
-        @include('layouts.info_right', [$meOrHe,$user,$isAttention])
+        @include('layouts.info_right')
     </div>
 @endsection

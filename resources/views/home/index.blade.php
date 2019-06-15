@@ -7,7 +7,7 @@
                 <div class="col-sm-9">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">默认排序</a>
+                            <a class="nav-link active" href="{{ route('home') }}">默认排序</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home').'?tab=latest' }}">最新话题</a>

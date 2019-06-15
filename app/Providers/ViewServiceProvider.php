@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Http\View\Composers\InfoComposer;
-use App\Http\View\Composers\InfoIdComposer;
+use App\Http\View\Composers\InfoLeftComposer;
+use App\Http\View\Composers\InfoRightComposer;
 use App\Http\View\Composers\NavComposer;
 use App\Http\View\Composers\LinkComposer;
 use App\Http\View\Composers\PopularComposer;
@@ -32,5 +32,7 @@ class ViewServiceProvider extends ServiceProvider
         View::composer("layouts.app", NavComposer::class);
         View::composer("layouts.links", LinkComposer::class);
         View::composer("layouts.popular", PopularComposer::class);
+        View::composer("layouts.info_left", InfoLeftComposer::class);
+        View::composer("layouts.info_right", InfoRightComposer::class);
     }
 }
