@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 class InfoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
         //查询出当前用户所发表的文章

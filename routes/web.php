@@ -29,10 +29,10 @@ Route::namespace("Home")->group(function () {
 
     //话题详情和保存评论
     Route::get('/topic', 'TopicController@index')->name("home.topic.index");
-    Route::post('/topic/reviewSave', 'TopicController@reviewSave')->name('home.topic.reviewSave');
-    Route::get('/topic/like', 'TopicController@like')->name('home.topic.like');
-    Route::get('/topic/reviewsLike', 'TopicController@reviewsLike')->name('home.topic.reviewsLike');
-    Route::get('/topic/collection', 'TopicController@collection')->name('home.topic.collection');
+    Route::post('/topic/reviewSave', 'TopicController@reviewSave')->middleware('auth')->name('home.topic.reviewSave');
+    Route::get('/topic/like', 'TopicController@like')->middleware('auth')->name('home.topic.like');
+    Route::get('/topic/reviewsLike', 'TopicController@reviewsLike')->middleware('auth')->name('home.topic.reviewsLike');
+    Route::get('/topic/collection', 'TopicController@collection')->middleware('auth')->name('home.topic.collection');
 
     //搜索页
     Route::get('/search', 'SearchController@index')->name('home.search.index');

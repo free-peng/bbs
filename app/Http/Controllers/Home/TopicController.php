@@ -28,12 +28,12 @@ class TopicController extends Controller
         //查看用户是否已点赞
         isset(Auth::user()->id)
             ? $like = Like::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
-            :  $like = false;
+            :  $like = 0;
 
         //查看用户是否已点赞
         isset(Auth::user()->id)
             ? $collection = Collection::where(['user_id' => Auth::user()->id, 'topic_id' => $request->id])->count()
-            :  $collection = false;
+            :  $collection = 0;
 
         return view('home.topic.index',compact('topic', 'like','collection'));
     }

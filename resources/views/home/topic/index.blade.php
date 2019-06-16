@@ -18,7 +18,7 @@
                     <li class="list-group-item">
                         <span style="float:right;">
                             <span>{{ $topic->pv }}次点击</span>
-                            @if($like === 0 || $link = false)
+                            @if($like == 0)
                             <span>
                                 <a href="{{ route('home.topic.like', ['id' => $topic->id]) }}">点赞</a>{{ optional($topic->like)->count() }}
                             </span>
@@ -26,7 +26,7 @@
                                 <span><a href="javaScript:void(0)">已点赞</a>{{ optional($topic->like)->count() }}</span>
                             @endif
 
-                            @if($collection === 0 || $collection = false)
+                            @if($collection == 0)
                                 <span>
                                 <a href="{{ route('home.topic.collection', ['id' => $topic->id]) }}">收藏</a>
                             </span>
