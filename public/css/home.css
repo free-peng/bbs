@@ -14,7 +14,7 @@
 
 .setting-border {
     width:100%;
-    border-bottom:1px solid red;
+    border-bottom:1px solid #f3f3f3;
 }
 .setting-border h5 {
     margin:0;

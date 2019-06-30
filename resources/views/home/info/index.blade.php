@@ -8,7 +8,7 @@
                     @foreach($topics as $topic)
                         <li class="list-group-item">
                             <div class="media">
-                                <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="Generic placeholder image">
+                                <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="失败" height="50" width="50">
                                 <div class="media-body">
                                     @if(request('id') == \Illuminate\Support\Facades\Auth::user()->id)
                                     <span class="" style="float:right; margin-top:10px;font-size:14px;"><a href="{{ route('home.info.destroy', ['id'=>$topic->id]) }}">删除</a></span>

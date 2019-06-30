@@ -13,7 +13,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        {{ $topic->content }}
+                        {!! $topic->content !!}
                     </li>
                     <li class="list-group-item">
                         <span style="float:right;">
@@ -46,7 +46,7 @@
                     @foreach($topic->comments as $comment)
                     <li class="list-group-item">
                         <div class="media">
-                            <img class="mr-3" src="{{ $comment->user->avatar }}" alt="加载失败">
+                            <img class="mr-3" src="{{ $comment->user->avatar }}" alt="加载失败" height="50" width="50">
                             <div class="media-body">
                                 <span class="mt-0"><a href=""><span class="setting-description">{{ $comment->user->name }}</span></a>&nbsp;
                                     <span class="setting-description">{{ $comment->created_at }}</span>

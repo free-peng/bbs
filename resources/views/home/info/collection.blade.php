@@ -8,7 +8,7 @@
                     @foreach($collections as $collection)
                         <li class="list-group-item">
                             <div class="media">
-                                <img class="mr-3" src="{{ optional($collection->user)->avatar }}" alt="失败">
+                                <img class="mr-3" src="{{ optional($collection->user)->avatar }}" alt="失败" height="50" width="50">
                                 <div class="media-body">
                                     <h6 class="mt-0"><a href="{{ route('home.topic.index', ['id'=>optional($collection->topic)->id]) }}">{{ optional($collection->topic)->title }}</a></h6>
                                     <span class="post-cate"><a href="">{{ optional($collection->topic->nodes)->name }}</a></span>

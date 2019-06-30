@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             //新添加的user字段
             $table->tinyInteger('is_admin')->default('0')->comment('是否是管理员,1是,0否');
-            $table->string('avatar')->default('http://cdn.guanggoo.com//static/avatar/46/m_default.png')->comment('用户头像');
+            $table->string('avatar')->default('http://bbs524.test//storage/avatars/20190630/XJuXyE2YV9HYntTpEEqTV1uf8oPYFV7lGHnhk1gh.jpeg')->comment('用户头像');
             $table->tinyInteger('sex')->default(1)->comment('用户性别,1为男，0为女');
             $table->string('website')->default('')->comment('个人网站地址');
             $table->string('weibo')->default('')->comment('个人微博');

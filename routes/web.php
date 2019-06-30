@@ -38,8 +38,8 @@ Route::namespace("Home")->group(function () {
     Route::get('/search', 'SearchController@index')->name('home.search.index');
 
     //发布新话题的页面
-    Route::get('/release', 'ReleaseController@index')->name("home.release.index");
-    Route::post('/release/save', 'ReleaseController@save')->name("home.release.save");
+    Route::get('/release', 'ReleaseController@index')->middleware('auth')->name("home.release.index");
+    Route::post('/release/save', 'ReleaseController@save')->middleware('auth')->name("home.release.save");
 
     //error页面
     Route::get('/error', 'ErrorsController@index')->name("home.error");

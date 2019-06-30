@@ -15,7 +15,7 @@
                                 <div class="form-group row">
                                     <strong for="inputEmail3" class="col-sm-2 col-form-label">头像</strong>
                                     <div class="col-sm-9">
-                                        <img src="{{ $avatar }}">
+                                        <img src="{{ $avatar }}" height="100" width="100">
                                     </div>
                                 </div>
                                 <div class="form-group row">

@@ -12,7 +12,7 @@
                             @foreach($nodeTopics as $topic)
                                 <li class="list-group-item">
                                     <div class="media">
-                                        <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="加载失败">
+                                        <img class="mr-3" src="{{ optional($topic->user)->avatar }}" alt="加载失败" width="50" height="50">
                                         <div class="media-body">
                                             <span class="badge badge-light" style="float:right; margin-top:10px;font-size:14px;">{{ $topic->pv }}</span>
                                             <h6 class="mt-0"><a href="">{{ $topic->title }}</a></h6>

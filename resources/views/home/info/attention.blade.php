@@ -8,7 +8,7 @@
                     @foreach($followings as $following)
                     <div class="info-attention-span">
                         <a href="{{ route('home.info.index', ['id'=>$following->attentionUser->id]) }}">
-                            <span><img src="{{ optional($following->attentionUser)->avatar }}" width="65" height="65"></span>
+                            <span><img src="{{ optional($following->attentionUser)->avatar }}" width="50" height="50"></span>
                         </a>
                          <div style="font-size: 13px;">
                              <a href="{{ route('home.info.index', ['id'=>$following->attentionUser->id]) }}">
