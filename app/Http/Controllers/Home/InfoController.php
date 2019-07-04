@@ -24,7 +24,7 @@ class InfoController extends Controller
     public function index(Request $request)
     {
         //查询出当前用户所发表的文章
-        $topics = Topics::where('user_id',Auth::user()->id)->paginate();
+        $topics = Topics::where('user_id',$request->id)->paginate();
 
         return view('home.info.index', compact('topics'));
     }

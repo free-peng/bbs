@@ -6,7 +6,7 @@
         <div class="col-sm-9">
             <div class="card" >
                 <div class="card-header">
-                    <h5>{{$topic->title}}</h5>
+                    <h5>{!! $topic->title !!}</h5>
                     <span class="post-cate"><a href="">{{ optional($topic->nodes)->name }}</a></span>
                     <span class="post-cate"><a href="">{{ optional($topic->user)->name }}</a></span>
                     <span class="post-cate">发表于&nbsp; {{ $topic->created_at }} </span>
@@ -54,7 +54,7 @@
                                 <span class="post-cate setting-description" style="float:right;">
                                     <a href="{{ route('home.topic.reviewsLike',['id'=>$comment->id]) }}">赞</a> {{ $comment->likes }}
                                 </span>
-                                <p>{{ $comment->content }}</p>
+                                <p>{!! $comment->content !!} </p>
                             </div>
                         </div>
                     </li>

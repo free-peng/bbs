@@ -26,6 +26,9 @@ class ReleaseController extends Controller
         $topic = new Topics;
         $topic->fill(array_merge($request->only('title','node_id','content'), $data));
 
+        $topic->content = clean($topic->content, 'user_topic_body');
+        $topic->title = clean($topic->title, 'user_topic_body');
+
         $topic->save();
 
         return redirect()->back();

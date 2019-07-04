@@ -59,8 +59,10 @@ class TopicController extends Controller
 
         $review = new Review;
         $review->fill(array_merge($data, $request->only('topic_id','content')));
+        $review->content = clean($review->content, 'user_topic_body');
         $review->save();
 
+        //更新活跃时间
         $topic = Topics::query()->findOrFail($request->topic_id);
         $topic->active_time = date('Y-m-d h:i:s', time());
         $topic->save();
